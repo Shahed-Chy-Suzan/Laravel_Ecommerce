@@ -1,0 +1,10 @@
+/* ---------------------------------------------- */
+/* ############### 4.2 Codemirror ############### */
+/* ---------------------------------------------- */
+
+.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+  border: 0;
+  @include border-radius(0);
+}
+
+.cmHeight100p .CodeMirror { height: 100%; }

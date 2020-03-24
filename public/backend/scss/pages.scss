@@ -1,0 +1,264 @@
+// Code Highlighter
+.hljs { background-color: $gray-200; }
+
+
+// Dashboard
+.quick-link-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  color: rgba(#fff,0.8);
+  border: 2px solid transparent;
+  background-color: $gray-500;
+  transition: none;
+
+  i {
+    font-size: 64px;
+    line-height: 0;
+  }
+
+  span {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    border-color: rgba(#fff, 0.8);
+  }
+}
+
+// Tooltip and Popover
+.tooltip-static-demo {
+  .tooltip {
+    z-index: 1;
+    opacity: 1;
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .bs-tooltip-top,
+  .bs-tooltip-bottom {
+    .arrow {
+      left: 50%;
+      margin-left: -2px;
+    }
+  }
+
+  .bs-tooltip-left,
+  .bs-tooltip-right {
+    margin-top: 5px;
+
+    .arrow {
+      top: 50%;
+      margin-top: -3px;
+    }
+  }
+}
+
+.popover-static-demo {
+  .popover {
+    z-index: 1;
+    opacity: 1;
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .bs-popover-top,
+  .bs-popover-bottom {
+    .arrow {
+      left: 50%;
+      margin-left: -5px;
+    }
+  }
+
+  .bs-popover-left,
+  .bs-popover-right {
+    margin-top: 5px;
+
+    .arrow {
+      top: 50%;
+      margin-top: -5px;
+    }
+  }
+}
+
+// Mailbox
+.mailbox-sideleft {
+  width: $sl-sideleft-width;
+  position: fixed;
+  top: 0;
+  left: -$sl-sideleft-width;
+  bottom: 0;
+  background-color: lighten($sl-primary, 5%);
+  padding: 15px;
+  overflow-y: auto;
+  @include transition($transition-base);
+
+  @include media-breakpoint-up(lg) {
+    top: $sl-header-height;
+    left: 0;
+  }
+}
+
+.nav-mailbox {
+  .nav-link {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 0 10px;
+    color: rgba(#fff, 0.75);
+
+    .icon {
+      width: 20px;
+      text-align: center;
+      margin-right: 8px;
+    }
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: $sl-primary;
+    }
+
+    &.active {
+      background-color: $sl-primary;
+      color: $sl-success;
+    }
+  }
+}
+
+.mailbox-content { @include transition($transition-base); }
+.mailbox-content-header {
+  display: flex;
+  justify-content:  space-between;
+
+  .btn-group {
+    .btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(#fff, 0.6);
+
+      i {
+        line-height: 0;
+
+        &::before,
+        &::after { line-height: 0; }
+      }
+
+      + .btn { margin-left: 1px; }
+    }
+  }
+}
+
+.collapsed-menu {
+  @include media-breakpoint-up(lg) {
+    .mailbox-sideleft { left: $sl-header-height; }
+    .mailbox-content { margin-left: $sl-sideleft-width; }
+  }
+}
+
+.show-mailbox-left {
+  @include media-breakpoint-down(md) {
+    .sl-mainpanel { transform: translateX($sl-sideleft-width); }
+    .mailbox-sideleft { top: 0; }
+
+    &.show-left {
+      .sl-mainpanel { transform: translateX($sl-sideleft-width * 2); }
+    }
+  }
+}
+
+
+// Widgets
+.bg-primary-light { background-color: lighten($brand-primary, 50%); }
+.bg-success-light { background-color: lighten($brand-success, 50%); }
+
+
+// Widget messages
+.widget-messages {
+  border: 0;
+  font-size: 14px;
+
+  .card-header {
+    padding: 15px 20px;
+    background-color: transparent;
+    border-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+
+    span {
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      color: $gray-800;
+      font-size: 13px;
+    }
+
+    a {
+      color: $gray-600;
+      &:hover,
+      &:focus { color: $brand-info; }
+    }
+  }
+
+  .list-group-item {
+    border-color: $gray-200;
+
+    &.media {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      width: 50px;
+      @include border-radius(100%);
+      display: flex;
+      margin-right: 15px;
+    }
+
+    .msg-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+
+      span:first-child {
+        color: $gray-800;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      span:last-child {
+        color: $gray-500;
+        font-size: 11px;
+        font-family: $font-family-roboto;
+      }
+    }
+
+    .msg-summary {
+      font-size: 12px;
+      color: $gray-600;
+      margin-bottom: 0;
+    }
+  }
+
+  .card-footer {
+    background-color: transparent;
+    border-top: 0;
+    text-align: center;
+  }
+}

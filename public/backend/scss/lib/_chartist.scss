@@ -1,0 +1,49 @@
+/* -------------------------------------------- */
+/* ############### 4.1 Chartist ############### */
+/* -------------------------------------------- */
+
+// Variables
+$color-a:  #ED1E79;
+$color-b:  #93268F;
+$color-c:  #818AC3;
+$color-d:  #0082CD;
+$color-e:  #EC7A9C;
+
+// Mixins
+@mixin set-series-color($color) {
+  .ct-point,
+  .ct-line,
+  .ct-bar,
+  .ct-slice-donut {
+    stroke: $color;
+  }
+
+  .ct-slice-pie,
+  .ct-slice-donut-solid {
+    fill: $color;
+    stroke: #fff;
+  }
+}
+
+// Styles
+.br-chartist {
+  .ct-label { font-size: 11px; }
+  .ct-line { stroke-width: 1px; }
+  .ct-point { stroke-width: 8px; }
+
+  .ct-chart-pie,
+  .ct-chart-donut {
+    .ct-label {
+      font-size: 16px;
+      fill: rgba(#fff, 0.75);
+    }
+  }
+}
+
+.br-chartist {
+  .ct-series-a { @include set-series-color($color-a); }
+  .ct-series-b { @include set-series-color($color-b); }
+  .ct-series-c { @include set-series-color($color-c); }
+  .ct-series-d { @include set-series-color($color-d); }
+  .ct-series-e { @include set-series-color($color-e); }
+}

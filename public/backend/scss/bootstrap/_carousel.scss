@@ -1,0 +1,103 @@
+/* -------------------------------------------- */
+/* ############### 3.4 Carousel ############### */
+/* -------------------------------------------- */
+
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 100;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none;
+
+  &::before {
+    font-family: 'Ionicons';
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.carousel-control-prev-icon::before {
+    content: '\f3d2';
+    left: 20px;
+}
+
+.carousel-control-next-icon::before {
+    content: '\f3d3';
+    right: 20px;
+}
+
+.control-top-left,
+.control-top-right,
+.control-bottom-left,
+.control-bottom-right {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 55px;
+  }
+}
+
+.control-top-left,
+.control-bottom-left {
+  .carousel-control-next  {
+    left: 40px;
+    right: auto;
+  }
+
+  .carousel-control-prev-icon::before { left: 20px; }
+  .carousel-control-next-icon::before { right: 20px; }
+}
+
+.control-top-right,
+.control-bottom-right {
+  .carousel-control-prev  {
+    right: 40px;
+    left: auto;
+  }
+}
+
+.control-bottom-left,
+.control-bottom-right {
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+// Indicators
+.carousel-indicators {
+  bottom: 5px;
+
+  li {
+    cursor: pointer;
+    width: 8px;
+    height: 8px;
+    @include border-radius(50px);
+  }
+}
+
+.indicators-top-center,
+.indicators-top-left,
+.indicators-top-right  {
+  top: 5px;
+  bottom: auto;
+  margin: 1rem 1rem 0;
+
+}
+
+.indicators-top-left,
+.indicators-bottom-left { justify-content: flex-start; }
+
+.indicators-top-right,
+.indicators-bottom-right { justify-content: flex-end; }
+
+.indicators-bottom-left,
+.indicators-bottom-right {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

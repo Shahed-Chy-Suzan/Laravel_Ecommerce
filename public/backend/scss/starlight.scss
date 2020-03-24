@@ -1,0 +1,94 @@
+/*!
+ * Starlight Responsive Dashboard Template
+ * Version: 2.0.0
+ * Author: ThemePixels (@themepixels)
+ * URL: http://themepixels.me/starlight
+ *
+**/
+
+/* --------------------------------------------------- */
+/* ############### GOOGLE FONTS IMPORT ############### */
+/* --------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text');
+
+// Bootstrap variable overrides
+@import "bootstrap/variables";
+
+/* --------------------------------------------------- */
+/* ############### BOOTSTRAP FRAMEWORK ############### */
+/* --------------------------------------------------- */
+@import "../bower_components/bootstrap/scss/bootstrap";
+
+// Custom mixins for bootstrap
+@import "bootstrap/mixins";
+
+/* --------------------------------------------------- */
+/* ############### BOOTSTRAP OVERRIDES ############### */
+/* --------------------------------------------------- */
+@import "bootstrap/alerts";
+@import "bootstrap/buttons";
+@import "bootstrap/card";
+@import "bootstrap/carousel";
+@import "bootstrap/custom";
+@import "bootstrap/custom-forms";
+@import "bootstrap/forms";
+@import "bootstrap/form-layouts";
+@import "bootstrap/modal";
+@import "bootstrap/nav";
+@import "bootstrap/pagination";
+@import "bootstrap/popover";
+@import "bootstrap/progress";
+@import "bootstrap/tooltip";
+@import "bootstrap/tables";
+
+// Custom mixins for lib styles
+@import "lib/mixins";
+
+/* ---------------------------------------------------- */
+/* ############### CUSTOM VENDOR STYLES ############### */
+/* ---------------------------------------------------- */
+@import "lib/chartist";
+@import "lib/codemirror";
+@import "lib/datatables";
+@import "lib/flot";
+@import "lib/jquery-steps";
+@import "lib/jqvmap";
+@import "lib/jquery-ui";
+@import "lib/medium-editor";
+@import "lib/morris";
+@import "lib/parsley";
+@import "lib/perfect-scrollbar";
+@import "lib/rickshaw";
+@import "lib/select2";
+@import "lib/sparkline";
+@import "lib/spectrum";
+@import "lib/summernote";
+@import "lib/tagsinput";
+
+
+/* ---------------------------------------------------- */
+/* ############### TEMPLATE CORE STYLES ############### */
+/* ---------------------------------------------------- */
+@import "app";
+@import "pages";
+
+
+/* ---------------------------------------------------------- */
+/* ############### UTILITIES / HELPER CLASSES ############### */
+/* ---------------------------------------------------------- */
+@import "util/background";
+@import "util/border";
+@import "util/height";
+@import "util/hover";
+@import "util/margin";
+@import "util/misc";
+@import "util/padding";
+@import "util/position";
+@import "util/typography";
+@import "util/width";
