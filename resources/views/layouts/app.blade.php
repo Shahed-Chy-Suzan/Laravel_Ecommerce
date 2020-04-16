@@ -63,7 +63,7 @@
 
                             <div class="top_bar_content ml-auto">
                                 <div class="top_bar_menu">
-                                    <ul class="standard_dropdown ">
+                                    <ul class="standard_dropdown ">   <!-------Niche "Modal" er code ache------->
                                         <li>
                                            <a href="#" data-toggle="modal" data-target="#exampleModal">My Order Traking</a>
                                         </li>
@@ -138,6 +138,7 @@
                             </a></div>
                             </div>
                         </div>
+
                         @php
                             $category=DB::table('categories')->get();
                         @endphp
@@ -203,8 +204,8 @@
                             <div class="cart_text"><a href="{{ route('show.cart') }}">Cart</a></div>
                             @if(Session::has('coupon'))
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                            {{-- <div class="cart_price">$ {{ Session::get('coupon')['balance'] + $charge }} </div> --}}
-                            <div class="cart_price">$ {{ Session::get('coupon')['balance'] }} </div>
+                            <div class="cart_price">$ {{ Session::get('coupon')['balance'] + $charge }} </div>
+                            {{-- <div class="cart_price">$ {{ Session::get('coupon')['balance'] }} </div> --}}
                             @else
                             <div class="cart_price">$ {{ Cart::Subtotal() }}</div>
                             @endif
@@ -221,9 +222,11 @@
 
             <!-- Main Navigation -->
 
+
     @yield('content')
 
 
+            <!-------- Start Footer ----------->
 @php
     $setting=DB::table('sitesetting')->first();
 @endphp
@@ -345,7 +348,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     @csrf
                     <div class="form-row">
                         <label>Status Code</label>
-                        <input type="text" name="code" required="" class="form-control" placeholder="Your Order Status Code">
+                        <input type="text" name="code" required="" class="form-control" placeholder="Enter order status code">
                     </div><br>
                     <button class="btn btn-danger" type="submit">Track Now</button>
                 </form>

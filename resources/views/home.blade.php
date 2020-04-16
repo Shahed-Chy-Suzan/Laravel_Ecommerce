@@ -8,17 +8,18 @@
     <div class="contact_form">
         <div class="container">
             <div class="row">
-               <div class="col-8 card">
-                 <table class="table table-response">
+               <div class="col-9 card">
+                 <table class="table table-response table-hover ">
                    <thead>
                      <tr>
                        <th scope="col">PaymentType</th>
                        <th scope="col">Payment ID</th>
                        <th scope="col">Amount</th>
                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Status Code</th>
-                        <th scope="col">Status </th>
                         <th scope="col">Action</th>
+                        <th></th>
                      </tr>
                    </thead>
                    <tbody>
@@ -50,7 +51,7 @@
                    </tbody>
                  </table>
                </div>
-               <div class="col-4">
+               <div class="col-3">
                  <div class="card" style="width: 18rem;">
                   <img src="{{ asset('public/avatar.jpg') }}" class="card-img-top" style="height: 90px; width: 90px; margin-left: 34%;" >
                   <div class="card-body">

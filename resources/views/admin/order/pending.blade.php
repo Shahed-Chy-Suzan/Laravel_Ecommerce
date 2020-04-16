@@ -8,7 +8,7 @@
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Orders List </h6>
+          <h6 class="card-body-title">Pending Orders List :</h6>
           <br>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">

@@ -11,9 +11,9 @@
       	   <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">SEO Setting </h6>
           <p class="mg-b-20 mg-sm-b-30">New Post add form</p>
+
           <form action="{{ route('update.seo') }}" method="post" >
           	@csrf
-
           <div class="form-layout">
             <div class="row mg-b-25">
               <div class="col-lg-6">
@@ -76,21 +76,5 @@
 
       </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
-
-
-<script type="text/javascript">
-	function readURL(input) {
-      if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('#one')
-                  .attr('src', e.target.result)
-                  .width(80)
-                  .height(80);
-          };
-          reader.readAsDataURL(input.files[0]);
-      }
-   }
-</script>
 
 @endsection

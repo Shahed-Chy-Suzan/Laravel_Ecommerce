@@ -29,8 +29,8 @@
                   <td>{{ $row->category_name_en }}</td>
                   <td><img src="{{ URL::to($row->post_image) }}" height="50px;" width="50px;"></td>
                   <td>
-                  	<a href="{{ URL::to('edit/post/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                  	<a href="{{ URL::to('delete/post/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete"><i class="fa fa-trash"></i></a>
+                  	<a href="{{ URL::to('edit/post/'.$row->id) }}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
+                  	<a href="{{ URL::to('delete/post/'.$row->id) }}" class="btn btn-sm btn-danger" title="Delete" id="delete"><i class="fa fa-trash"></i></a>
                   </td>
 
                 </tr>
@@ -41,7 +41,5 @@
         </div><!-- card -->
       </div><!-- sl-pagebody -->
   </div>
-
-
 
 @endsection

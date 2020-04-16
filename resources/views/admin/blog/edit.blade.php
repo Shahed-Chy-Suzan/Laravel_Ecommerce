@@ -9,13 +9,13 @@
     <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="#">Starlight</a>
-        <span class="breadcrumb-item active">Product Section</span>
+        <span class="breadcrumb-item active">Post Section</span>
       </nav>
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title"> Post Update </h6>
           <p class="mg-b-20 mg-sm-b-30">Update Post </p>
-          
+
           <form action="{{ url('update/post/'.$post->id) }}" method="post" enctype="multipart/form-data">
           	@csrf
 
@@ -86,8 +86,6 @@
             </div><!-- row -->
             <br><hr>
 
-
-            <br><br><hr>
             <div class="form-layout-footer">
               <button class="btn btn-info mg-r-5" type="submit">Update </button>
             </div><!-- form-layout-footer -->
@@ -97,9 +95,6 @@
 
       </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
-
-
-
 
 
 <script type="text/javascript">

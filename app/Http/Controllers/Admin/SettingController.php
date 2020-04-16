@@ -73,6 +73,11 @@ class SettingController extends Controller
         return Redirect()->back()->with($notification);
     }
 
+    public function DownloadDatabase($getFilename)
+    {
+        $path = storage_path('app\Laravel/'.$getFilename);
+        return response()->download($path);
+    }
 
 
 }

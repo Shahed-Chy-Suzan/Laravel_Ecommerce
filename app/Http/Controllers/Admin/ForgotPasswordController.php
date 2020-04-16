@@ -34,12 +34,12 @@ class ForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        return view('admin.passwords.email');
-        // return view('admin.auth.passwords.email');
+        // return view('admin.passwords.email');
+        return view('admin.auth.passwords.email');
     }
 
     public function broker()
     {
-        return Password::broke('admins');
+        return Password::broker('admins');
     }
 }

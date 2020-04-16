@@ -41,10 +41,10 @@
             <tr>
             <td>{{$row->id}}</td>
             <td>{{$row->category_name}}</td>
-                <td>
-                    <a href="{{url('edit/category/'.$row->id) }}" class="btn btn-sm btn-info">Edit</a>
-                    <a href="{{url('delete/category/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
-                </td>
+            <td>
+                <a href="{{url('edit/category/'.$row->id) }}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{{url('delete/category/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+            </td>
             </tr>
             @endforeach
         </tbody>

@@ -33,8 +33,8 @@ class FrontController extends Controller
              return view('pages.track',compact('track'));
          }else{
                $notification=array(
-                'message'=>'Status code invalid ',
-                'alert-type'=>'error'
+                    'message'=>'Status code invalid ',
+                    'alert-type'=>'error'
                 );
              return Redirect()->back()->with($notification);
          }

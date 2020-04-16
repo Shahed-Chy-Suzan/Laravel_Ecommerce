@@ -35,7 +35,7 @@ class PaymentController extends Controller
         }elseif($request->payment == 'ideal'){
 
         }else{
-        echo"handcash";
+        echo "Handcash";
         }
 
     }
@@ -56,8 +56,8 @@ class PaymentController extends Controller
 
         $charge = \Stripe\Charge::create([
 //ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi
-            'amount' => 999*100,
-            //'amount' => $total*100,
+            // 'amount' => 999*100,
+            'amount' => $total*100,     //--Multipling with 100 to convert Cent into Dollar.
             'currency' => 'usd',
             'description' => 'Learn Hunter details',
             'source' => $token,
@@ -86,7 +86,7 @@ class PaymentController extends Controller
         $data['year']=date('Y');
         $data['status_code']= mt_rand(100000,999999);
         $order_id=DB::table('orders')->insertGetId($data);
-        
+
         Mail::to($email)->send(new invoiceMail($data));    //---------mail send to user-------------
 
     //insert shipping details table
@@ -127,6 +127,20 @@ class PaymentController extends Controller
             return Redirect()->to('/')->with($notification);
     }
 
+//-------not found yet--------
+    // public function Checkout2callback(Request $request)
+    // {
+    //     Cart::destroy();
+    //              if (Session::has('coupon')) {
+    //              Session::forget('coupon');
+    //          }
+    //            $notification=array(
+    //                           'messege'=>'Successfully Done',
+    //                            'alert-type'=>'success'
+    //                      );
+    //              return Redirect()->to('/')->with($notification);
+    // }
+
 
 //----------------Return Order------------------
     public function SuccessList()
@@ -139,8 +153,8 @@ class PaymentController extends Controller
     {
         DB::table('orders')->where('id',$id)->update(['return_order'=>1]);
         $notification=array(
-                    'message'=>'Order return request done! please wait for our confirmation email',
-                    'alert-type'=>'success'
+            'message'=>'Order return request done! please wait for our confirmation email',
+            'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
     }

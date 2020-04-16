@@ -8,13 +8,14 @@ use DB;
 use Response;
 use Auth;
 use Session;
+
 class CartController extends Controller
 {
 
         //-----------------------------------------------------------------------
                     //---Page reload chara 'cart add' korar jonno
         //-----------------------------------------------------------------------
-//Nicher code ta main index page e 'add to cart' e click krlei Ajax diye auto load charai 'Cart' e add hoye notification asto,sei bebostar jonno code ta likha hoyechilo,kinto pore frontend theke sob data(size,color) soho niye jaowar jonno 'modal' use kore kaj kora hoyeche,tai ota r lagteche na ekn..
+//Nicher code ta main index page e 'add to cart' e click korlei Ajax diye auto load charai 'Cart' e add hoye notification asto,sei bebostar jonno code ta likha hoyechilo,kinto pore frontend theke sob data(size,color) soho niye jaowar jonno 'modal' use kore kaj kora hoyeche,tai ota r lagteche na ekn..
 
 //--ekhane arrray($data['qty']) er vlaue gula package er documentation dekhe likte hobe,-----
 //-----cart add----------
@@ -23,7 +24,7 @@ class CartController extends Controller
         $product=DB::table('products')->where('id',$id)->first();
         $data=array();
         if ($product->discount_price == NULL) {
-            $data['id']=$product->id;               //------if NO discount available----------
+            $data['id']=$product->id;               //------if NO discount is available----------
             $data['name']=$product->product_name;
             $data['qty']=1;
             $data['price']= $product->selling_price;
@@ -37,7 +38,7 @@ class CartController extends Controller
         }else{
             $data['id']=$product->id;
             $data['name']=$product->product_name;
-            $data['qty']=1;                             //------if discount available----------
+            $data['qty']=1;                          //------if discount available----------
             $data['price']= $product->discount_price;
             $data['weight']=1;
             $data['options']['image']=$product->image_one;
@@ -83,7 +84,7 @@ class CartController extends Controller
 
 
 //-----------------------------------------------------------------------------------------
-        //---Page reload kore 'cart add' korar jonno
+        //---Page reload kore 'cart add' korar jonno---//
 //-----------------------------------------------------------------------------------------
 //----Modal tai data gula view koranor jonno---//(Model ta index pager er niche royeche)----
     public function ViewProduct($id)
@@ -109,16 +110,16 @@ class CartController extends Controller
          ));
     }
 
-//-----------Modal theke data gula niye asha/cart DB te save/insert kora-----------
+//-----------Modal theke data gula niye asha/cart_er_DB te save/insert kora-----------
     public function InsertCart(Request $request)
     {
           $id=$request->product_id;
           $product=DB::table('products')->where('id',$id)->first();
           $data=array();
           if ($product->discount_price == NULL) {
-                $data['id']=$product->id;
+                $data['id']=$product->id;           //------if NO discount is available----------
                 $data['name']=$product->product_name;
-                $data['qty']=$request->qty;;
+                $data['qty']=$request->qty;
                 $data['price']= $product->selling_price;
                 $data['weight']=1;
                 $data['options']['image']=$product->image_one;
@@ -133,7 +134,7 @@ class CartController extends Controller
            }else{
                 $data['id']=$product->id;
                 $data['name']=$product->product_name;
-                $data['qty']=$request->qty;;
+                $data['qty']=$request->qty;           //------if discount available----------
                 $data['price']= $product->discount_price;
                 $data['weight']=1;
                 $data['options']['image']=$product->image_one;
@@ -183,10 +184,10 @@ class CartController extends Controller
         $check=DB::table('coupons')->where('coupon',$coupon)->first();
         if ($check) {
               session::put('coupon',[
-                  'name'    => $check->coupon,
-                  'discount'=> $check->discount,
-                //'balance' => Cart::Subtotal() - $check->discount
-                  'balance' => Cart::Subtotal()    //- $check->discount
+                    'name'    => $check->coupon,
+                    'discount'=> $check->discount,
+                    'balance' => Cart::Subtotal() - $check->discount
+                    //'balance' => Cart::Subtotal()    //- $check->discount
 //--ekhane 'a non well formed numeric value entered' error/problem ta asteche,tai comment kore dechi.
               ]);
                 $notification=array(

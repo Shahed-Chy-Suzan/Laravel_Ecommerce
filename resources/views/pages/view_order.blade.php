@@ -16,21 +16,21 @@
          	        <div class="card-header"><strong>Order</strong> Details</div>
 
          	        <div class="card-body">
-         	    	<table class="table">
+         	    	<table class="table table-hover">
          	    		 <tr>
-         	    		 	<th>Name: </th>
+         	    		 	<th>Name : </th>
          	    		 	<th>{{ $order->name }}</th>
          	    		 </tr>
          	    		 <tr>
-         	    		 	<th>Phone: </th>
+         	    		 	<th>Phone : </th>
          	    		 	<th>{{ $order->phone }}</th>
          	    		 </tr>
          	    		 <tr>
-         	    		 	<th>Payment: </th>
+         	    		 	<th>Payment : </th>
          	    		 	<th>{{ $order->payment_type }}</th>
          	    		 </tr>
          	    		 <tr>
-         	    		 	<th>Payment ID: </th>
+         	    		 	<th>Payment ID : </th>
          	    		 	<th>{{ $order->payment_id }}</th>
          	    		 </tr>
          	    		 <tr>
@@ -42,7 +42,7 @@
          	    		 	<th>{{ $order->month }}</th>
          	    		 </tr>
          	    		  <tr>
-         	    		 	<th>Date: </th>
+         	    		 	<th>Date : </th>
          	    		 	<th>{{ $order->date }}</th>
          	    		 </tr>
          	    	</table>
@@ -55,21 +55,21 @@
          	    <div class="card">
          	        <div class="card-header"><strong>Shipping</strong> Details</div>
          	        <div class="card-body">
-         	    	<table class="table">
+         	    	<table class="table table-hover">
          	    		 <tr>
-         	    		 	<th>Name: </th>
+         	    		 	<th>Name : </th>
          	    		 	<th>{{ $shipping->ship_name }}</th>
          	    		 </tr>
          	    		 <tr>
-         	    		 	<th>Phone: </th>
+         	    		 	<th>Phone : </th>
          	    		 	<th>{{ $shipping->ship_phone }}</th>
          	    		 </tr>
          	    		 <tr>
-         	    		 	<th>Email: </th>
+         	    		 	<th>Email : </th>
          	    		 	<th>{{ $shipping->ship_email }}</th>
          	    		 </tr>
          	    		 <tr>
-         	    		 	<th>Address: </th>
+         	    		 	<th>Address : </th>
          	    		 	<th>{{ $shipping->ship_address }}</th>
          	    		 </tr>
          	    		 <tr>
@@ -105,7 +105,7 @@
          	  <h6 class="card-header">Product Details </h6>
          	  <br>
          	  <div class="table-wrapper">
-         	    <table  class="table display responsive nowrap">
+         	    <table  class="table display responsive nowrap table-hover">
          	      <thead>
          	        <tr>
          	          <th class="wd-15p">Product ID</th>

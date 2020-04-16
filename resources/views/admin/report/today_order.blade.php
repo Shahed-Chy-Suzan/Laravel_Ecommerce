@@ -8,7 +8,7 @@
         </div><!-- sl-page-title -->
 
         <div class="card pd-20 pd-sm-40">
-          <h6 class="card-body-title">Orders Report List </h6>
+          <h6 class="card-body-title">Order's Report List </h6>
           <br>
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
@@ -17,11 +17,11 @@
                   <th class="wd-15p">Payment Type</th>
                   <th class="wd-15p">Transection ID</th>
                   <th class="wd-15p">Subtotal</th>
-                  <th class="wd-20p">Shipping</th>
-                  <th class="wd-20p">Total</th>
-                   <th class="wd-20p">Date</th>
-                   <th class="wd-20p">Status</th>
-                   <th class="wd-20p">Action</th>
+                  <th class="wd-10p">Shipping</th>
+                  <th class="wd-10p">Total</th>
+                   <th class="wd-10p">Date</th>
+                   <th class="wd-10p">Status</th>
+                   <th class="wd-10p">Action</th>
                    {{-- <th class="wd-20p"></th> --}}
                 </tr>
               </thead>

@@ -28,8 +28,6 @@ class ResetPasswordController extends Controller
     protected $redirectTo = '/home';
 
 
-
-
     public function __construct()
     {
         $this->middleware('guest');

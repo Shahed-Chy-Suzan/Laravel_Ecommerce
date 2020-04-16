@@ -25,7 +25,7 @@
                     </span>
                 @enderror
 
-              <a href="{{-- {{ route('admin.password.request') }} --}}" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
+              <a href="{{ route('admin.password.request') }}" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
             </div><!-- form-group -->
           <button type="submit" class="btn btn-info btn-block">Sign In</button>
      </form>

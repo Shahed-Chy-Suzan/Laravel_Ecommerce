@@ -7,6 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
 use DB;
+
 class AdminController extends Controller
 {
         /**

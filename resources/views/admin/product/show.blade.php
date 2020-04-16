@@ -11,7 +11,7 @@
       <span class="breadcrumb-item active">Product Section</span>
     </nav>
     <div class="sl-pagebody">
-           <div class="card pd-20 pd-sm-40">
+        <div class="card pd-20 pd-sm-40">
 
         <p class="mg-b-20 mg-sm-b-30">Product Details</p>
 

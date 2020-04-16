@@ -4,24 +4,21 @@
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
 
-        //-------get sub cate by ajax---------
-Route::get('get/subcategory/{category_id}','Admin\ProductController@GetSubcat');
-
         //-------------Wishlists-------------
 Route::get('add/wishlist/{id}','WishlistController@AddWishlist');
 
         //------------Cart------------------
-Route::get('add/to/cart/{id}','CartController@AddCart');
-Route::get('check','CartController@check');
+Route::get('add/to/cart/{id}','CartController@AddCart');   //--ajax+add_to_cart(not_available_now)
+Route::get('check','CartController@check');   //--checking added cart by hitting '/check' manually
 
-Route::get('products/cart','CartController@showCart')->name('show.cart');
+Route::get('products/cart','CartController@showCart')->name('show.cart');   //--nav--
 Route::get('remove/cart/{rowId}','CartController@removeCart');
 Route::post('update/cart/item','CartController@UpdateCart')->name('update.cartitem');
-Route::get('cart/product/view/{id}','CartController@ViewProduct');
-Route::post('insert/into/cart/','CartController@InsertCart')->name('insert.into.cart');
+Route::get('cart/product/view/{id}','CartController@ViewProduct');   //--from add_to_cart 'Modal_JS'
+Route::post('insert/into/cart/','CartController@InsertCart')->name('insert.into.cart'); //--from 'Modal'er form[3rd_col]
 
 Route::get('user/checkout/','CartController@Checkout')->name('user.checkout');
-Route::get('user/wishlist/','CartController@Wishlist')->name('user.wishlist');
+Route::get('user/wishlist/','CartController@Wishlist')->name('user.wishlist');  //--nav--
 Route::post('user/apply/coupon/','CartController@Coupon')->name('apply.coupon');
 Route::get('coupon/remove/','CartController@CouponRemove')->name('coupon.remove');
 Route::get('payment/page/','CartController@PymentPage')->name('payment.step');
@@ -29,8 +26,12 @@ Route::get('payment/page/','CartController@PymentPage')->name('payment.step');
         //---------payment methods----------------
 Route::post('user/payment/process/','PaymentController@payment')->name('payment.process');
 Route::post('user/stripe/charge/','PaymentController@STripeCharge')->name('stripe.charge');
+
+// //2checkout approved payment return callback
+// Route::get('/callback','PaymentController@Checkout2callback');  //--------------no idea--------------
+
         //--------return order-------------
-Route::get('success/list/','PaymentController@SuccessList')->name('success.orderlist');    //return order
+Route::get('success/list/','PaymentController@SuccessList')->name('success.orderlist');    //---return order----
 Route::get('request/return/{id}','PaymentController@RequestReturn');
 
         //------------blog routes-------------------
@@ -54,16 +55,16 @@ Route::get('/user/logout', 'HomeController@Logout')->name('user.logout');
             //-------admin---------------
 Route::get('admin/home', 'AdminController@index');
 Route::get('admin', 'Admin\LoginController@showLoginForm')->name('admin.login');
-Route::post('admin', 'Admin\LoginController@login');
+Route::post('admin', 'Admin\LoginController@login');    //--d--
 
             //-------Password Reset Routes------------
 Route::get('admin/password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-Route::post('admin-password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::post('admin-password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email'); //--d--
 Route::get('admin/reset/password/{token}', 'Admin\ResetPasswordController@showResetForm')->name('admin.password.reset');
-Route::post('admin/update/reset', 'Admin\ResetPasswordController@reset')->name('admin.reset.update');
+Route::post('admin/update/reset', 'Admin\ResetPasswordController@reset')->name('admin.reset.update');   //--d--
 Route::get('/admin/Change/Password','AdminController@ChangePassword')->name('admin.password.change');
 Route::post('/admin/password/update','AdminController@Update_pass')->name('admin.password.update');
-Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
+Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');     //--d--
 
 
                         //--------admin section-------------
@@ -108,6 +109,8 @@ Route::get('view/product/{id}','Admin\ProductController@ViewProduct');
 Route::get('edit/product/{id}','Admin\ProductController@EditProduct');
 Route::post('update/product/withoutphoto/{id}','Admin\ProductController@UpdateProductWithoutPhoto');
 Route::post('update/product/photo/{id}','Admin\ProductController@UpdateProductPhoto');
+        //-------get sub cate by ajax---------
+Route::get('get/subcategory/{category_id}','Admin\ProductController@GetSubcat');
         //--------blog routes(en/bn)---------------
 Route::get('admin/post/categoryName','Admin\PostController@postCategory')->name('postCategory.name');
 Route::get('admin/post/add/categoryName','Admin\PostController@addCategory')->name('add.categoryName');
@@ -123,17 +126,17 @@ Route::get('delete/post/{id}','Admin\PostController@destroy');
 Route::get('edit/post/{id}','Admin\PostController@edit');
 Route::post('update/post/{id}','Admin\PostController@update');
         //-----------admin Order routes------------
-Route::get('admin/pending/order', 'Admin\OrderController@NewOrder')->name('admin.neworder');
+Route::get('admin/pending/order', 'Admin\OrderController@NewOrder')->name('admin.neworder');  //--nav--
 Route::get('admin/view/order/{id}', 'Admin\OrderController@ViewOrder');
 Route::get('admin/payment/accept/{id}', 'Admin\OrderController@PaymentAccept');
 Route::get('admin/payment/cancel/{id}', 'Admin\OrderController@PaymentCancel');
-Route::get('admin/accept/payment', 'Admin\OrderController@AcceptPaymentOrder')->name('admin.accept.payment');
-Route::get('admin/progress/payment', 'Admin\OrderController@ProgressPaymentOrder')->name('admin.progress.payment');
-Route::get('admin/success/payment', 'Admin\OrderController@SuccessPaymentOrder')->name('admin.success.payment');
-Route::get('admin/cancel/payment', 'Admin\OrderController@CancelPaymentOrder')->name('admin.cancel.order');
+Route::get('admin/accept/payment', 'Admin\OrderController@AcceptPaymentOrder')->name('admin.accept.payment');   //--nav--
+Route::get('admin/progress/payment', 'Admin\OrderController@ProgressPaymentOrder')->name('admin.progress.payment'); //--nav--
+Route::get('admin/success/payment', 'Admin\OrderController@SuccessPaymentOrder')->name('admin.success.payment');  //--nav--
+Route::get('admin/cancel/payment', 'Admin\OrderController@CancelPaymentOrder')->name('admin.cancel.order');  //--nav--
 Route::get('admin/delevery/progress/{id}', 'Admin\OrderController@DeleveryProgress');
 Route::get('admin/delevery/done/{id}', 'Admin\OrderController@DeleveryDone');
-        //---------orders routes-------------
+        //---------Reports routes-------------
 Route::get('admin/today/order', 'Admin\ReportController@TodayOrder')->name('today.order');
 Route::get('admin/today/deleverd', 'Admin\ReportController@TodayDelevered')->name('today.delevered');
 Route::get('admin/this/month', 'Admin\ReportController@ThisMonth')->name('this.month');
@@ -161,6 +164,7 @@ Route::post('admin/update/sitesetting', 'Admin\SettingController@UpdateSetting')
 Route::get('admin/database/backup', 'Admin\SettingController@DatabaseBackup')->name('admin.database.backup');
 Route::get('admin/database/backup/now', 'Admin\SettingController@BackupNow')->name('admin.backup.now');
 Route::get('delete/database/{getFilename}', 'Admin\SettingController@DeleteDatabase');
+Route::get('{getFilename}','Admin\SettingController@DownloadDatabase');
 
 
 //=============================================================================
@@ -170,7 +174,7 @@ Route::get('delete/database/{getFilename}', 'Admin\SettingController@DeleteDatab
         //---------Frontend All Routes are here:---------------
 Route::post('store/newsletters','FrontController@storeNewsletter')->name('store.newsletters');
 
-Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');
+Route::get('/product/details/{id}/{product_name}', 'ProductController@ProductView');    //showing_Products_deatails
 Route::post('/cart/product/add/{id}', 'ProductController@AddCart');
 
         //for subcategory productShowing

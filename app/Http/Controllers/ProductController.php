@@ -19,7 +19,8 @@ class ProductController extends Controller
     	$product_color = explode(',', $color);
 
     	$size=$product->product_size;
-    	$product_size = explode(',', $size);
+        $product_size = explode(',', $size);
+
       return  view('pages.product_details',compact('product','product_color','product_size'));
     }
 
@@ -31,7 +32,7 @@ class ProductController extends Controller
     	  	            $data['id']=$id;
     	                $data['name']=$product->product_name;
     	                $data['qty']=$request->qty;
-    	                $data['price']= $product->selling_price;
+    	                $data['price']= $product->selling_price;       //-----------
     	 				$data['weight']=1;
     	                $data['options']['image']=$product->image_one;
                         $data['options']['color']=$request->color;
@@ -46,7 +47,7 @@ class ProductController extends Controller
     	                $data['id']=$id;
     	                $data['name']=$product->product_name;
     	                $data['qty']=$request->qty;
-    	                $data['price']= $product->discount_price;
+    	                $data['price']= $product->discount_price;   //---------------
     	 				$data['weight']=1;
     	                $data['options']['image']=$product->image_one;
                         $data['options']['color']=$request->color;
@@ -59,7 +60,7 @@ class ProductController extends Controller
                        return Redirect()->to('/')->with($notification);
     	 }
     }
-    
+
 
 //---for subcategory Product showing-----
     public function productsView($id)

@@ -49,7 +49,7 @@
                         @elseif($track->status == 3)
                             <h4>Note: <b>Successfully Delevered Your Order<b> </h4>
                         @else
-                            <h4>Note: <b>Order Cancel<b> </h4>
+                            <h4>Note: <b>Order Cancelled<b> </h4>
                         @endif
 
 					 </div>
