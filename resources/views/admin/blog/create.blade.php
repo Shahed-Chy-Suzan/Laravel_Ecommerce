@@ -2,8 +2,6 @@
 
 @section('admin_content')
 
-
-
     <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="#">Starlight</a>
@@ -63,7 +61,6 @@
                 </div>
               </div>
 
-
               <div class="col-lg-4">
               	<label>Post Image (Main Thumbnail)<span class="tx-danger">*</span></label>
               	<label class="custom-file">
@@ -76,7 +73,6 @@
             </div><!-- row -->
             <br><hr>
 
-
             <br><br><hr>
             <div class="form-layout-footer">
               <button class="btn btn-info mg-r-5" type="submit">Submit </button>
@@ -87,9 +83,6 @@
 
       </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
-
-
-
 
 
 <script type="text/javascript">

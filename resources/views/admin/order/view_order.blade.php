@@ -9,7 +9,7 @@
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">
 
-          <p class="mg-b-20 mg-sm-b-30">Order Details</p>
+          <p class="mg-b-20 mg-sm-b-30">View Order Details</p>
 
          <div class="row">
          	<div class="col-md-6">

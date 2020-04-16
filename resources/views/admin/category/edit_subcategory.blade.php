@@ -36,7 +36,7 @@
                     <label for="catid">Category Name</label>
                     <select name="category_id" id="catid" class="form-control">
                     @foreach ($category as $row)
-                        <option value="{{$row->id}}" <?php if ($row->id == $subcategory->category_id) {
+                        <option value="{{$row->id}}" <?php if($row->id == $subcategory->category_id) {
                             echo "selected";
                         } ?> >{{$row->category_name}}</option>
                     @endforeach

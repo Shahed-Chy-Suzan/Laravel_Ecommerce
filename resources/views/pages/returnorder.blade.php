@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8 card">
-                <table class="table table-response">
+                <table class="table table-response table-hover">
                 <thead>
                     <tr>
                     <th scope="col">PaymentType</th>
@@ -19,7 +19,7 @@
                 <tbody>
                 @foreach($order as $row)
                     <tr>
-                    <th >{{ $row->payment_type }}</th>
+                        <td >{{ $row->payment_type }}</td>
                     <td>
                         @if($row->return_order == 0)
                             <span class="badge badge-warning">No Request</span>

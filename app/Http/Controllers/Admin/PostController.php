@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use Image;
+
 class PostController extends Controller
 {
     public function __construct()

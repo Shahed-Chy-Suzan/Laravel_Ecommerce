@@ -94,23 +94,23 @@ class ProductController extends Controller
 //---------Inactive-----------------
     public function Inactive($id)
     {
-         DB::table('products')->where('id',$id)->update(['status'=> 0]);
-         $notification=array(
-                     'message'=>'Successfully Product Inactive ',
-                     'alert-type'=>'success'
-                    );
-         return Redirect()->back()->with($notification);
+        DB::table('products')->where('id',$id)->update(['status'=> 0]);
+        $notification=array(
+                    'message'=>'Successfully Product Inactive ',
+                    'alert-type'=>'success'
+                );
+        return Redirect()->back()->with($notification);
     }
 
 //---------Active-------------
     public function Active($id)
     {
-         DB::table('products')->where('id',$id)->update(['status'=> 1]);
-         $notification=array(
-                     'message'=>'Successfully Product Aactive ',
-                     'alert-type'=>'success'
-                    );
-         return Redirect()->back()->with($notification);
+        DB::table('products')->where('id',$id)->update(['status'=> 1]);
+        $notification=array(
+                    'message'=>'Successfully Product Aactive ',
+                    'alert-type'=>'success'
+                );
+        return Redirect()->back()->with($notification);
     }
 
 //------------Delete----------------

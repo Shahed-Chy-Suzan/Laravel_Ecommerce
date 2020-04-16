@@ -4,14 +4,14 @@
 		<div class="container">
 			<div class="row">
 
-				<!-- Images -->
-				<div class="col-lg-2 order-lg-1 order-2">
-					<ul class="image_list">
-						<li data-image="{{ asset($product->image_one) }}"><img src="{{ asset($product->image_one) }}" alt=""></li>
-						<li data-image="{{ asset($product->image_two) }}"><img src="{{ asset($product->image_two) }}" alt=""></li>
-						<li data-image="{{ asset($product->image_three) }}"><img src="{{ asset($product->image_three) }}" alt=""></li>
-					</ul>
-				</div>
+            <!-- Images -->
+            <div class="col-lg-2 order-lg-1 order-2">
+                <ul class="image_list">
+                    <li data-image="{{ asset($product->image_one) }}"><img src="{{ asset($product->image_one) }}" alt=""></li>
+                    <li data-image="{{ asset($product->image_two) }}"><img src="{{ asset($product->image_two) }}" alt=""></li>
+                    <li data-image="{{ asset($product->image_three) }}"><img src="{{ asset($product->image_three) }}" alt=""></li>
+                </ul>
+            </div>
 
 				<!-- Selected Image -->
 				<div class="col-lg-5 order-lg-2 order-1">
@@ -66,8 +66,8 @@
 								<div class="clearfix" style="z-index: 1000;">
 								</div>
 
-								 @if($product->discount_price == NULL)
-								<div class="product_price"> Price : $ {{ $product->selling_price }}</div>
+								@if($product->discount_price == NULL)
+								    <div class="product_price"> Price : $ {{ $product->selling_price }}</div>
 								@else
 								@endif
 								@if($product->discount_price != NULL)

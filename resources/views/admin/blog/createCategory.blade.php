@@ -41,8 +41,4 @@
       </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
 
-
-
-
-
 @endsection

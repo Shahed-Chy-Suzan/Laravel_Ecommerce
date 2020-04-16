@@ -1,14 +1,16 @@
 @extends('admin.admin_layouts')
 @section('admin_content')
+
     <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="#">Starlight</a>
-        <span class="breadcrumb-item active">Product Section</span>
+        <span class="breadcrumb-item active">Site Setting Section</span>
       </nav>
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">Website Setting  </h6>
           <p class="mg-b-20 mg-sm-b-30"> Website Update</p>
+          
           <form action="{{ route('update.sitesetting') }}" method="post" >
           	@csrf
           <input type="hidden" name="id" value="{{ $setting->id }}">

@@ -43,10 +43,10 @@
             <td>{{$row->id}}</td>
             <td>{{$row->brand_name}}</td>
             <td><img src="{{URL::to($row->brand_logo)}}" height="40px" width="50px"></td>
-                <td>
-                    <a href="{{url('edit/brand/'.$row->id) }}" class="btn btn-sm btn-info">Edit</a>
-                    <a href="{{url('delete/brand/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
-                </td>
+            <td>
+                <a href="{{url('edit/brand/'.$row->id) }}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{{url('delete/brand/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+            </td>
             </tr>
             @endforeach
         </tbody>

@@ -30,12 +30,11 @@
 					<div class="blog_post">
 						<div class="blog_image" style="background-image:url({{ asset($row->post_image) }})"></div>
 						<div class="blog_text">
-							         @if(session()->get('lang') == 'bangla')
-                                          {{ $row->post_title_bn }}
-                                     @else
-                                          {{ $row->post_title_en }}
-                                     @endif
-
+                                @if(session()->get('lang') == 'bangla')
+                                    {{ $row->post_title_bn }}
+                                @else
+                                    {{ $row->post_title_en }}
+                                @endif
 						</div>
 						<div class="blog_button"><a href="#">
 							 @if(session()->get('lang') == 'bangla')
@@ -46,7 +45,7 @@
 					</a></div>
 					</div>
                     @endforeach
-                    
+
 				</div>
 			</div>
 		</div>

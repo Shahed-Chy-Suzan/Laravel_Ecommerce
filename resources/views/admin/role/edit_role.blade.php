@@ -4,7 +4,7 @@
     <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="#">Starlight</a>
-        <span class="breadcrumb-item active">Product Section</span>
+        <span class="breadcrumb-item active">Admin Section</span>
       </nav>
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">

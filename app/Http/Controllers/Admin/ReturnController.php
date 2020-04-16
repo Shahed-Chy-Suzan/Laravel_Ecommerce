@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+
 class ReturnController extends Controller
 {
     public function __construct()
@@ -20,12 +21,12 @@ class ReturnController extends Controller
 
     public function ApproveReturn($id)
     {
-//----------- for removing product from "stock" after delevery ---------------------
+//-----------for adding product to "stock" after return_delevery---------------------
         $product=DB::table('order_details')->where('order_id',$id)->get();
         foreach ($product as $row) {
             DB::table('products')
-            ->where('id',$row->product_id)
-            ->update(['product_quantity' => DB::raw('product_quantity +'.$row->quantity)]);
+                ->where('id',$row->product_id)
+                ->update(['product_quantity' => DB::raw('product_quantity +'.$row->quantity)]);
         }
 //----making success of return------
         DB::table('orders')->where('id',$id)->update(['return_order'=>2]);

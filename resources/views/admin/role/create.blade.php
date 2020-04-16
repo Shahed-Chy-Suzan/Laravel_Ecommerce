@@ -4,15 +4,15 @@
     <div class="sl-mainpanel">
       <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="#">Starlight</a>
-        <span class="breadcrumb-item active">Product Section</span>
+        <span class="breadcrumb-item active">User Role Section</span>
       </nav>
       <div class="sl-pagebody">
       	   <div class="card pd-20 pd-sm-40">
           <h6 class="card-body-title">New Admin  </h6>
           <p class="mg-b-20 mg-sm-b-30">New Admin add form</p>
+
           <form action="{{ route('store.admin') }}" method="post" >
           	@csrf
-
           <div class="form-layout">
             <div class="row mg-b-25">
               <div class="col-lg-6">

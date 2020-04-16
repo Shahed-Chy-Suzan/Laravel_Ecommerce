@@ -11,11 +11,11 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="cart_container">
-                    <div class="cart_title">Shopping Cart</div>
+                    <div class="cart_title">Shopping Cart :</div>
                     <div class="cart_items">
                         <ul class="cart_list">
                         @foreach($cart as $row)
-                            <li class="cart_item clearfix">
+                            <li class="cart_item clearfix cart_list">
                                 <div class="cart_item_image"><img src="{{ asset( $row->options->image) }}" style="height: 100px;"></div>
                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                     <div class="cart_item_name cart_info_col">
@@ -64,6 +64,7 @@
                                     </div>
                                 </div>
                             </li>
+                            {{-- <hr> --}}
                             @endforeach
                         </ul>
                     </div>
@@ -71,7 +72,7 @@
                     <!-- Order Total -->
                     <div class="order_total">
                         <div class="order_total_content text-md-right">
-                            <div class="order_total_title">Order Total:</div>
+                            <div class="order_total_title">Order Total :</div>
                             <div class="order_total_amount">${{ Cart::Subtotal() }}</div>
                         </div>
                     </div>

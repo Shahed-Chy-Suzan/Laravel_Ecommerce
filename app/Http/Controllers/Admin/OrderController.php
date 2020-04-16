@@ -13,6 +13,16 @@ class OrderController extends Controller
         $this->middleware('auth:admin');
     }
 
+//----------------------------------------------------------------------------
+// --ekhane Database onosare "Status" er term gular rules holo :--
+//         Status = 0 = Pending
+//         Status = 1 = Payment_Accepted
+//         Status = 2 = Delivery_Progress
+//         Status = 3 = Successfully_Delivered
+//         Status = 4 = Cancel_Order
+//----------------------------------------------------------------------------
+
+
 //----adminPanel new_order------
     public function NewOrder()
     {
@@ -61,6 +71,7 @@ class OrderController extends Controller
         return Redirect()->route('admin.neworder')->with($notification);
     }
 
+//-----------nav---------------
     public function AcceptPaymentOrder()
     {
         $order=DB::table('orders')->where('status',1)->get();
@@ -98,14 +109,14 @@ class OrderController extends Controller
 
     public function DeleveryDone($id)
     {
-//----------- for removing product from "stock" after delevery ---------------------
+//----------- For removing product from "stock" after delevery ---------------------
         $product=DB::table('order_details')->where('order_id',$id)->get();
         foreach ($product as $row) {
             DB::table('products')
               ->where('id',$row->product_id)
               ->update(['product_quantity' => DB::raw('product_quantity -'.$row->quantity)]);
         }
-        
+
 //--send to delevery------
         DB::table('orders')->where('id',$id)->update(['status'=>3]);
         $notification=array(

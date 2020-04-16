@@ -27,7 +27,7 @@ class WishlistController extends Controller
     		}else{
     			DB::table('wishlists')->insert($data);
                 //return \Response::json(['success' => 'Successfully Added on your wishlist']);
-             return response()->json(['success' => 'Successfully Added on your wishlist']);
+                return response()->json(['success' => 'Successfully Added on your wishlist']);
     		}
     	}else{
     		//return \Response::json(['error' => 'At first login your account']);

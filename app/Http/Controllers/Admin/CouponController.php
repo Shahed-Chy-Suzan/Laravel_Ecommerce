@@ -79,7 +79,7 @@ class CouponController extends Controller
         DB::table('newsletters')->where('id',$id)->delete();
 
         $notification = array(
-            'message'=>'Successfully  Deleted Done',
+            'message'=>'Successfully Deleted',
             'alert-type'=>'success'
         );
         return redirect()->back()->with($notification);
@@ -103,7 +103,7 @@ class CouponController extends Controller
         $data['google_analytics']=$request->google_analytics;
         $data['bing_analytics']=$request->bing_analytics;
         DB::table('seo')->where('id',$id)->update($data);
-        
+
         $notification=array(
                 'message'=>'SEO Updated',
                 'alert-type'=>'success'

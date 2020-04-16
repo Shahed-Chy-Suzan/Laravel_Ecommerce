@@ -2,7 +2,9 @@
 
 @section('content')
 
-<!--------------- Log-in & Register Form --------------->
+                <!--------------- Log-in & Register Form --------------->
+
+<!--------------- Log-in Form --------------->
 <link rel="stylesheet" type="text/css" href="{{ asset('public/frontend/styles/contact_styles.css')}}">
 
     <div class="contact_form">
@@ -46,7 +48,7 @@
                 </div>
 
 
-
+<!--------------- Register Form --------------->
                  <div class="col-lg-5 offset-lg-1" style="border: 1px solid grey; padding: 20px;">
                     <div class="contact_form_container">
                         <div class="contact_form_title text-center">Sign Up</div>

@@ -9,7 +9,7 @@
 <script src="{{asset('public/frontend/js/jquery.min.js')}}"></script>
 
 @php
- $featured=DB::table('products')->where('status',1)->orderBy('id','desc')->limit(24)->get();
+ $featured=DB::table('products')->where('status',1)->orderBy('id','desc')->limit(24)->get();    //sob_product(available)
  $trend=DB::table('products')->where('status',1)->where('trend',1)->orderBy('id','desc')->limit(24)->get();
  $best=DB::table('products')->where('status',1)->where('best_rated',1)->orderBy('id','desc')->limit(24)->get();
  $hot=DB::table('products')->join('brands','products.brand_id','brands.id')->select('brands.brand_name','products.*')->where('products.status',1)->where('hot_deal',1)->orderBy('id','desc')->limit(4)->get();
@@ -86,26 +86,28 @@
                             @foreach($hot as $ht)
                                 <!-- Deals Item -->
                                 <div class="owl-item deals_item">
-                                    <div class="deals_image"><img src="{{ asset($ht->image_one) }}" style="width: 140px;"></div>
+                                    <div class="deals_image"><a href="{{ url('product/details/'.$ht->id.'/'.$ht->product_name) }}"><img src="{{ asset($ht->image_one) }}" style="width: 140px;"></a></div>
                                     <div class="deals_content">
+
                                         <div class="deals_info_line d-flex flex-row justify-content-start">
                                             <div class="deals_item_category"><a href="#">{{ $ht->brand_name }}</a></div>
                                             @if($ht->discount_price == NULL)
                                             @else
                                             <div class="deals_item_price_a ml-auto">${{ $ht->selling_price }}</div>
                                             @endif
-
                                         </div>
+
                                         <div class="deals_info_line d-flex flex-row justify-content-start">
                                             <div class="deals_item_name">{{ $ht->product_name }}</div>
                                             @if($ht->discount_price == NULL)
                                               <div class="deals_item_price ml-auto">$ {{ $ht->selling_price }}</div>
                                             @else
+                                            <div class="deals_item_price ml-auto">$ {{ $ht->discount_price }}</div>
                                             @endif
-                                            @if($ht->discount_price != NULL)
+                                            {{-- @if($ht->discount_price != NULL)
                                               <div class="deals_item_price ml-auto">$ {{ $ht->discount_price }}</div>
                                             @else
-                                            @endif
+                                            @endif --}}
 
                                         </div>
                                         <div class="available">
@@ -174,7 +176,9 @@
                                         <div class="border_active"></div>
                                         <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                             <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                                <a href="{{ url('product/details/'.$row->id.'/'.$row->product_name) }}"><img src="{{ asset($row->image_one) }}" style="height: 120px; width: 130px;"></a></div>
+                                                <a href="{{ url('product/details/'.$row->id.'/'.$row->product_name) }}"><img src="{{ asset($row->image_one) }}" style="height: 120px; width: 130px;"></a>
+                                            </div>
+
                                             <div class="product_content">
 
                                             @if($row->discount_price == NULL)
@@ -186,25 +190,25 @@
                                                     {{ $row->product_name }}
                                                 </a></div></div>
 
-
         {{--------'Cart' using ajax (niche JS ache)--------}}
                                           {{--  <div class="product_extras">
                                                     <button class="product_cart_button addcart" data-id="{{ $row->id }}">Add to Cart</button>
                                                 </div> --}}
 
+         {{--------"cart without ajax" (niche "Modal" er code ache)--------}}
                                                 <div class="product_extras">
                                                     <button id="{{ $row->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal"  onclick="productview(this.id)">Add to Cart</button>
                                                 </div>
                                             </div>
 
-
-        {{-------- 'wishlist' using ajax (niche JS ache)--------}}
+        {{-------- 'wishlist' without ajax (niche JS ache)--------}}
                                             {{-- <a href="{{ URL::to('add/wishlist/'.$row->id) }}">
                                                 <div class="product_fav">
                                                     <i class="fa fa-heart text-danger"></i>
                                                 </div>
                                             </a> --}}
 
+        {{-------- 'wishlist' using ajax (niche JS ache)--------}}
                                             <button
                                                class="addwishlist" data-id="{{ $row->id }}">
                                                <div class="product_fav">
@@ -258,21 +262,22 @@
                                                 <div class="product_name"><div><a href="#">
                                                     {{ $tre->product_name }}
                                                 </a></div></div>
+
                                                 <div class="product_extras">
-                                                    <button class="product_cart_button">Add to Cart</button>
+                                                    <button id="{{ $tre->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal"  onclick="productview(this.id)">Add to Cart</button>
                                                 </div>
                                             </div>
-
+        <!-------Not Working here(Discount equation)------->
                                             {{-- <a href="{{ URL::to('add/wishlist/'.$tre->id) }}">
                                                 <div class="product_fav">
                                                     <i class="fa fa-heart text-danger"></i>
                                                 </div>
                                             </a> --}}
                                             <button
-                                               class="addwishlist" data-id="{{ $tre->id }}">
-                                               <div class="product_fav">
-                                                  <i class="fa fa-heart text-info"></i>
-                                               </div>
+                                                class="addwishlist" data-id="{{ $tre->id }}">
+                                                <div class="product_fav">
+                                                    <i class="fa fa-heart text-info"></i>
+                                                </div>
                                             </button>
 
                                             <ul class="product_marks">
@@ -319,8 +324,9 @@
                                                 <div class="product_name"><div><a href="#">
                                                     {{ $bst->product_name }}
                                                 </a></div></div>
+
                                                 <div class="product_extras">
-                                                    <button class="product_cart_button">Add to Cart</button>
+                                                    <button id="{{ $bst->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal"  onclick="productview(this.id)">Add to Cart</button>
                                                 </div>
                                             </div>
 
@@ -368,7 +374,8 @@
         </div>
     </div>
 
-    <!-- Popular Categories -->
+
+    <!-------------- Popular Categories ---------------------->
 
 @php
  $category=DB::table('categories')->get();
@@ -407,7 +414,8 @@
         </div>
     </div>
 
-    <!-- Banner -->
+
+    <!-------------- Banner (MId)---------------------->
 @php
     $mid=DB::table('products')
         ->join('categories','products.category_id','categories.id')
@@ -434,7 +442,7 @@
                                         <div class="banner_2_title">{{ $row->product_name }}</div>
                                         <div class="banner_2_text">{{ $row->brand_name }} <br>Product Id: {{ $row->product_code }}.</div>
                                         <div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                        <div class="button banner_2_button"><a href="#">Explore</a></div>
+                                        <div class="button banner_2_button"><a href="{{ url('product/details/'.$row->id.'/'.$row->product_name) }}">Explore</a></div>
                                     </div>
 
                                 </div>
@@ -454,7 +462,8 @@
         </div>
     </div>
 
-    <!-- Hot New Arrivals -->
+
+    <!------------------ Hot New Arrivals --------------------------->
 
     <div class="new_arrivals">
         <div class="container">
@@ -1725,7 +1734,7 @@
         </div>
     </div>
 
-    <!-- Best Sellers -->
+    <!------------- Best Sellers ------------------------>
 
     <div class="best_sellers">
         <div class="container">
@@ -2499,12 +2508,12 @@ $products=DB::table('products')->where('category_id',$category_id)->where('statu
 
                                                  @else
                                                 @php
-                                                // $amount=$row->selling_price - $row->discount_price;
-                                                // $discount=$amount/$row->selling_price * 100;
+                                                $amount=$row->selling_price - $row->discount_price;
+                                                $discount=$amount/$row->selling_price * 100;
                                                 @endphp
                                                  <li class="product_mark product_discount">
 
-                                               {{-- {{ intval($discount) }}% --}}
+                                               {{ intval($discount) }}%
                                                 </li>
                                                  @endif
 
@@ -2594,17 +2603,17 @@ $products=DB::table('products')->where('category_id',$category_id)->where('statu
     <div class="container">
         <div class="row">
 
-            <!-- Trends Content -->
-            <div class="col-lg-3">
-                <div class="trends_container">
-                    <h2 class="trends_title">Buy One Get One</h2>
-                    <div class="trends_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</p></div>
-                    <div class="trends_slider_nav">
-                        <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
-                        <div class="trends_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
-                    </div>
+        <!-- Trends Content -->
+        <div class="col-lg-3">
+            <div class="trends_container">
+                <h2 class="trends_title">Buy One Get One</h2>
+                <div class="trends_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</p></div>
+                <div class="trends_slider_nav">
+                    <div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
+                    <div class="trends_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
                 </div>
             </div>
+        </div>
 @php
 $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orderBy('id','desc')->limit(12)->get();
 @endphp
@@ -2640,21 +2649,20 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
                                 </div>
                                 <ul class="trends_marks">
                                     {{-- <li class="trends_mark trends_discount">-25%</li> --}}
-                                        @if($row->discount_price == NULL)
-                                                <li class="product_mark product_discount" style="background: blue;">New</li>
+                                    @if($row->discount_price == NULL)
+                                        {{-- <li class="product_mark product_discount" style="background: blue;">New</li> --}}
+                                        <li class="trends_mark trends_new" style="background: blue;">New</li>
+                                    @else
+                                    @php
+                                        $amount=$row->selling_price - $row->discount_price;
+                                        $discount=$amount/$row->selling_price * 100;
+                                    @endphp
+                                        <li class="trends_mark trends_discount">
 
-                                                @else
-                                            @php
-                                            // $amount=$row->selling_price - $row->discount_price;
-                                            // $discount=$amount/$row->selling_price * 100;
-                                            @endphp
-                                                <li class="product_mark product_discount">
-
-                                            {{-- {{ intval($discount) }}% --}}
-                                            </li>
+                                        {{ intval($discount) }}%
+                                        </li>
                                     @endif
-
-                                    <li class="trends_mark trends_new">Extra One</li>
+                                    {{-- <li class="trends_mark trends_new">Extra</li> --}}
                                 </ul>
 <!--------------wishlist---------------->
                                 <a href="{{ URL::to('add/wishlist/'.$row->id) }}">
@@ -2960,11 +2968,13 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
                             <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
                         </div>
                         <div class="newsletter_content clearfix">
+
                             <form action="{{ route('store.newsletters') }}" class="newsletter_form" method="post">
                                 @csrf
                                 <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address" name="email">
                                 <button class="newsletter_button" type="submit">Subscribe</button>
                             </form>
+
                             <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
                         </div>
                     </div>
@@ -2976,7 +2986,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
     <!------------End Footer -------------->
 
 
-<!--------------product cart add modal------------------>
+<!--------------product "Cart_add" modal------------------>
 
 <!-- Modal -->
 <div class="modal fade " id="cartmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -2992,6 +3002,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
         <div class="modal-body">
          <div class="row">
             <div class="col-md-4">
+
                 <div class="card" style="width: 16rem;">
                 <img src="" class="card-img-top" id="pimage" style="height: 240px;">
                 <div class="card-body">
@@ -3001,7 +3012,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
             </div>
             <div class="col-md-4 ml-auto">
                 <ul class="list-group">
-                    <li class="list-group-item"> <h5 class="card-title" id="pname"></h5></span></li>
+                    <li class="list-group-item"> <h4 class="card-title" id="pname"></h4></span></li>
                     <li class="list-group-item">Product code: <span id="pcode"> </span></li>
                     <li class="list-group-item">Category:  <span id="pcat"> </span></li>
                     <li class="list-group-item">SubCategory:  <span id="psubcat"> </span></li>
@@ -3012,7 +3023,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
             <div class="col-md-4 ">
                 <form action="{{ route('insert.into.cart') }}" method="post">
                   @csrf
-                  <input type="hidden" name="product_id" id="product_id">
+                  <input type="hidden" name="product_id" id="product_id">   <!---hidden//taking_ID--->
                   <div class="form-group" id="colordiv">
                     <label for="">Color</label>
                     <select name="color" class="form-control">
@@ -3040,7 +3051,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
 
 <!---Model er JS/ajax code-->
   <script type="text/javascript">
-      function productview(id){
+      function productview(id){     //--(productview(id)//-->from 'add to Cart' button div)
             $.ajax({
                 url: "{{  url('/cart/product/view/') }}/"+id,
                 type:"GET",
@@ -3079,11 +3090,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
   </script>
 
 
-
-
-
 {{----------- for applying ajax in wishlist --------------}}
-
 
 {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> --}}
 {{---   OR----////----
@@ -3091,10 +3098,10 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
 
 
 
-{{-- //-----------------------for wishlist------------------------ --}}
+{{-- -----------------------for wishlist------------------------ --}}
 <script type="text/javascript">
     $(document).ready(function() {
-          $('.addwishlist').on('click', function(){
+          $('.addwishlist').on('click', function(){     //--from add to 'wishlist' button/name //-->(.addwishlist)
             var id = $(this).data('id');
             if(id) {
                $.ajax({
@@ -3131,7 +3138,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
 </script>
 
 
-<!--Nicher ajax er 'add to cart' er code ta main index page e 'add to cart' e click krlei Ajax diye auto load charai 'Cart' e add hoye notification asto,sei bebostar jonno code ta likha hoyechilo,kinto pore frontend theke sob data(size,color) soho niye jaowar jonno 'modal' use kore kaj kora hoyeche,tai ora r lagteche na ekn--->
+<!--Nicher ajax er 'add to cart' er code ta main index.blade.php page e 'add to cart' e click korlei Ajax diye kono load charai 'Cart' e add hoye notification asto(mane auto load hoye jetho),sei bebostar jonno code ta likha hoyechilo,kinto pore frontend theke sob data(size,color) soho niye jaowar jonno 'modal' use kore kaj kora hoyeche,tai ora r lagteche na ekn--->
 
 {{-- //------------for addcart------------------- --}}
 {{-- <script type="text/javascript">
@@ -3175,7 +3182,5 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
    });
 
 </script> --}}
-
-
 
 @endsection

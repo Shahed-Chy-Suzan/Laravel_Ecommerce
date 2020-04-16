@@ -21,7 +21,7 @@
     <link href="{{ asset('public/backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
 
     <!-- Starlight CSS -->
-    <link rel="stylesheet" href="{{asset('public/backend/css/toastr.min.css')}}">
+    <link href="{{asset('public/backend/css/toastr.min.css')}}" rel="stylesheet">
     {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"> --}}
 
     <link rel="stylesheet" href="{{asset('public/backend/css/starlight.css')}}">
@@ -34,7 +34,7 @@
 
     @else
             <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> StarLight</a></div>
+    <div class="sl-logo"><a href="{{url('admin/home')}}"><i class="icon ion-android-star-outline"></i> StarLight</a></div>
     <div class="sl-sideleft">
       <div class="sl-sideleft-menu">
         <a href="{{url('admin/home')}}" class="sl-menu-link active">
@@ -601,9 +601,6 @@
 
 {{-- --------------------------------------------------------------------- --}}
 {{-- --------------------------------------------------------------------- --}}
-
-
-
 
 
 

@@ -99,11 +99,12 @@
 						   <br><br><hr>
 
 						<ul class="list-group col-lg-8" >
-							  @if(Session::has('coupon'))
-							       <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
-							        <li class="list-group-item">Coupon : ({{   Session::get('coupon')['name'] }})  <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
+                                @if(Session::has('coupon'))
+                                    <li class="list-group-item">Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span> </li>
+                                    <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }}) <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
+							        <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
 							  	@else
-							  	  <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
+							  	  <li class="list-group-item">Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
 							  	@endif
 
 
@@ -112,12 +113,12 @@
 							  <li class="list-group-item">Vat :  <span style="float: right;"> 0</span></li>
                               @if(Session::has('coupon'))
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                              {{-- <li class="list-group-item">Total:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li> --}}
-                              <li class="list-group-item">Total:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
+                              <li class="list-group-item">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li>
+                              {{-- <li class="list-group-item">Total:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
                               @else
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                                {{-- <li class="list-group-item">Total:  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li> --}}
-                                <li class="list-group-item">Total:  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li>
+                                <li class="list-group-item">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li>
+                                {{-- <li class="list-group-item">Total:  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
 							  @endif
 						</ul>
 					</div>
@@ -145,8 +146,12 @@
                         <input type="hidden" name="shipping" value="{{ $charge }}">
                         <input type="hidden" name="vat" value="0">
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                        {{-- <input type="hidden" name="total" value="{{ Cart::Subtotal() + $charge }}"> --}}
-                        <input type="hidden" name="total" value="{{ Cart::Subtotal() }}">
+                        @if(Session::has('coupon'))
+                        <input type="hidden" name="total" value="{{ Session::get('coupon')['balance'] + $charge }}">
+                        @else
+                        <input type="hidden" name="total" value="{{ Cart::Subtotal() + $charge }}">
+                        {{-- <input type="hidden" name="total" value="{{ Cart::Subtotal() }}"> --}}
+                        @endif
                              {{-- shipping details pass --}}
                          <input type="hidden" name="ship_name" value="{{ $data['name'] }}">
                          <input type="hidden" name="ship_email" value="{{ $data['email'] }}">

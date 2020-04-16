@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Hash;
+
 class ReportController extends Controller
 {
     public function __construct()
@@ -102,7 +103,7 @@ class ReportController extends Controller
         $data['setting']=$request->setting;
         $data['stock']=$request->stock;
         $data['type']=2;
-        
+
         DB::table('admins')->insert($data);
         $notification=array(
                 'message'=>'Child Admin Create Successfully',
