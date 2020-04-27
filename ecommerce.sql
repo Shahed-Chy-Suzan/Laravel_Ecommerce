@@ -729,7 +729,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `provider`, `provider_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `phone`) VALUES
 (1, 'user', 'user@gmail.com', NULL, NULL, NULL, NULL, '$2y$10$6z7VivOYjAXZ5vRcdtKxEekycMe4LuXQKqIhOlqbr95iuP0Z2DIla', NULL, '2020-03-04 10:34:36', '2020-03-04 10:34:36', '0181111112'),
 (2, 'shahed', 'shahed@gmail.com', NULL, NULL, NULL, '2020-03-04 13:10:23', '$2y$10$2HleI46qnKS9Xje5XiHUq.zpsqqED8ZMoAxKl6nUnMuxLT/owc1z6', NULL, '2020-03-04 13:04:16', '2020-03-04 15:32:57', '22333455325'),
-(4, 'Sujan Ctg', 'sujanctg15@gmail.com', NULL, 'google', '100322289106519556841', NULL, NULL, NULL, '2020-03-08 03:32:51', '2020-03-08 03:32:51', NULL);
+(4, 'Sujan Ctg', 'sujanctg15@gmail.com', NULL, 'google', NULL, NULL, NULL, NULL, '2020-03-08 03:32:51', '2020-03-08 03:32:51', NULL);
 
 -- --------------------------------------------------------
 
