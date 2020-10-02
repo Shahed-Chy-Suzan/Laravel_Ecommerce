@@ -1,74 +1,62 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<div align="center">
+  
+# Laravel E-Commerce
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+</div>
 
-## About Laravel
+<p align="center"><img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fi2.wp.com%2Fwp.laravel-news.com%2Fwp-content%2Fuploads%2F2015%2F05%2Fbanner.png%3Fresize%3D2200%252C1125&imgrefurl=https%3A%2F%2Flaravel-news.com%2Flaravel-and-e-commerce&tbnid=f_o61kOjVRNSnM&vet=10CIcBEDMo7AJqFwoTCIj8877ZluwCFQAAAAAdAAAAABAE..i&docid=ShvgVYTXJs8JVM&w=800&h=216&q=laravel%20ecommerce&ved=0CIcBEDMo7AJqFwoTCIj8877ZluwCFQAAAAAdAAAAABAE"></p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Authentication
+- Category/Subcategory
+- Brand
+- Products setup
+- Multiple image upload
+- Discount
+- Coupon
+- Wishlist
+- Cart
+- Checkout
+- Order
+- Report
+- Return order
+- Stock management
+- Order tracking
+- Mail (QUEUE)
+- Payment Gateway [Strip] 
+- User role
+- Newslater
+- SEO
+- Blog
+- Multiple language (Bangla/English)
+- Search
+- By one get one / Hot deal / New Featured / Trend
+- Socialite
+- Settings
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Database Schema
 
-## Learning Laravel
+- Visit this - 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Packages
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Image Intervention : http://image.intervention.io/
+- Shopping Cart      : https://packagist.org/packages/bumbummen99/shoppingcart
+- Socialite          : https://www.tutsmake.com/laravel-6-google-login-tutorial-with-socialite-demo-example/
+- "Stripe" Payment Gateway : https://stripe.com/docs/libraries
+- Facebook Comment Plugin : https://developers.facebook.com/docs/plugins/comments/
+- Social Share Button : https://platform.sharethis.com/inline-share-buttons
+- Alert (sweetalert2) : https://sweetalert2.github.io/
+- Mail Create, Run: **_php artisan make:mail InvoiceMail_**
 
-## Laravel Sponsors
+## After clone or download this project, please follow the instructions
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Clone the repository with **_git clone https://github.com/Shahed-Chy-Suzan/Laravel_Ecommerce.git_**
+- Run **_cd E-Commerce-by-Laravel_**
+- Copy **.env.example** file to **.env** and edit **Database** credentials there
+- Run **_composer install_**
+- Run **_php artisan key:generate_**
+- Run **_php artisan migrate_**
+- Run **_npm install_**
+- Run **_php artisan serve_**
