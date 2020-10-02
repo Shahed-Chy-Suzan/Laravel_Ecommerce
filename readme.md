@@ -1,10 +1,10 @@
 <div align="center">
   
-# Laravel E-Commerce
+# Laravel E-Commerce Web Application
 
 </div>
 
-<p align="center"><img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fi2.wp.com%2Fwp.laravel-news.com%2Fwp-content%2Fuploads%2F2015%2F05%2Fbanner.png%3Fresize%3D2200%252C1125&imgrefurl=https%3A%2F%2Flaravel-news.com%2Flaravel-and-e-commerce&tbnid=f_o61kOjVRNSnM&vet=10CIcBEDMo7AJqFwoTCIj8877ZluwCFQAAAAAdAAAAABAE..i&docid=ShvgVYTXJs8JVM&w=800&h=216&q=laravel%20ecommerce&ved=0CIcBEDMo7AJqFwoTCIj8877ZluwCFQAAAAAdAAAAABAE"></p>
+<p align="center"><img src="https://miro.medium.com/max/2800/1*l93HjLEwJ2LetGKqWPws5A.png"></p>
 
 ## Features
 
@@ -53,7 +53,7 @@
 ## After clone or download this project, please follow the instructions
 
 - Clone the repository with **_git clone https://github.com/Shahed-Chy-Suzan/Laravel_Ecommerce.git_**
-- Run **_cd E-Commerce-by-Laravel_**
+- Run **_cd Laravel_Ecommerce_**
 - Copy **.env.example** file to **.env** and edit **Database** credentials there
 - Run **_composer install_**
 - Run **_php artisan key:generate_**
