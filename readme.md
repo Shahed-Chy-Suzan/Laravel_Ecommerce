@@ -37,7 +37,7 @@
 
 ## Database Schema
 
-- Visit this - 
+- Visit this - https://drawsql.app/shahed-chy-suzan/diagrams/e-commerce
 
 ## Packages
 
