@@ -115,9 +115,9 @@
               </label>
             </div>
             <div class="col-lg-4">
-                <label>Image Two <span class="tx-danger">*</span></label>
+                <label>Image Two : <span class="tx-danger">*</span></label>
                 <label class="custom-file">
-                <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required="" accept="image">
+                <input type="file" id="file" class="custom-file-input" name="image_two" onchange="readURL1(this);" required="" accet="image">
                 <span class="custom-file-control"></span>
                 <img src="#" id="two" >
               </label>

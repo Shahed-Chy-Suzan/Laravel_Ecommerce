@@ -117,10 +117,10 @@ class OrderController extends Controller
               ->update(['product_quantity' => DB::raw('product_quantity -'.$row->quantity)]);
         }
 
-//--send to delevery------
+//----delevery done------
         DB::table('orders')->where('id',$id)->update(['status'=>3]);
         $notification=array(
-                'message'=>'Send To Delivery',
+                'message'=>'Delivery Done Successfully',
                 'alert-type'=>'success'
         );
         return Redirect()->route('admin.success.payment')->with($notification);

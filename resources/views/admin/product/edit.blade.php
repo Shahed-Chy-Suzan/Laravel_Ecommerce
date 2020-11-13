@@ -194,6 +194,8 @@
     </div><!-- sl-pagebody -->
 
 
+
+
 <!---------- Update Product With Photo ---------------->
 
 
@@ -240,9 +242,10 @@
       				   <input type="hidden" name="old_three" value="{{ $product->image_three }}">
       				</label>
                	 </div>
-               	 <div class="col-lg-6 col-sm-6">
+               	<div class="col-lg-6 col-sm-6">
                	 	<img src="{{ URL::to($product->image_three) }}" style="height: 80px; width: 80px;">
-               	 </div>
+                </div>
+
                	 <button type="submit" class="btn btn-sm btn-warning">Update Photo</button>
                </form>
 

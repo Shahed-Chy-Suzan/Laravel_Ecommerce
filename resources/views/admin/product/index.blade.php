@@ -46,9 +46,9 @@
                   	<a href="{{ URL::to('view/product/'.$row->id) }}" class="btn btn-sm btn-warning" title="View"><i class="fa fa-eye"></i></a>
 
                   	@if($row->status == 1)
-                  		<a href="{{ URL::to('inactive/product/'.$row->id) }}" class="btn btn-sm btn-danger" title="Inactive"><i class="fa fa-thumbs-down"></i></a>
+                  		<a href="{{ URL::to('inactive/product/'.$row->id) }}" class="btn btn-sm btn-danger" title="Make_Inactive"><i class="fa fa-thumbs-down"></i></a>
                   	@else
-                  		<a href="{{ URL::to('active/product/'.$row->id) }}" class="btn btn-sm btn-success" title="Active"><i class="fa fa-thumbs-up"></i></a>
+                  		<a href="{{ URL::to('active/product/'.$row->id) }}" class="btn btn-sm btn-success" title="Make_Active"><i class="fa fa-thumbs-up"></i></a>
                   	@endif
 
                   </td>

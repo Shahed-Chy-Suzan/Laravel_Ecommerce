@@ -29,8 +29,8 @@
                   <td>{{ $row->category_name_en }}</td>
                   <td>{{ $row->category_name_bn }}</td>
                   <td>
-                  	<a href="{{ URL::to('edit/category/name/'.$row->id) }}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                  	<a href="{{ URL::to('delete/category/name/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete"><i class="fa fa-trash"></i></a>
+                  	<a href="{{ URL::to('edit/category/name/'.$row->id) }}" title='Edit' class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                  	<a href="{{ URL::to('delete/category/name/'.$row->id) }}" title='Delete' class="btn btn-sm btn-danger" id="delete"><i class="fa fa-trash"></i></a>
                   </td>
 
                 </tr>

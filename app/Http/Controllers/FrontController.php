@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 class FrontController extends Controller
 {
+	
+//-----------Newsletter----------------
     public function storeNewsletter(Request $request){
         $validatedData = $request->validate([
             'email'  => 'required|unique:newsletters|max:55',

@@ -63,7 +63,7 @@ return [
                 'dump_binary_path' => 'D:\DevApps\php74\mysql\bin',
                 'use_single_transaction',
                 'timeout' => 60 * 5,
-         ],
+			],
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],

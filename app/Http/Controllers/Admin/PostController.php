@@ -45,7 +45,7 @@ class PostController extends Controller
         DB::table('post_category')->where('id',$id)->delete();
 
         $notification=array(
-                'message'=>'Successfully Category Deleted ',
+                'message'=>'Successfully Category Deleted',
                 'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);
@@ -64,7 +64,7 @@ class PostController extends Controller
 
         DB::table('post_category')->where('id',$id)->update($data);
         $notification=array(
-                'message'=>'Successfully Post Update ',
+                'message'=>'Successfully Post Updated',
                 'alert-type'=>'success'
             );
         return Redirect()->route('postCategory.name')->with($notification);

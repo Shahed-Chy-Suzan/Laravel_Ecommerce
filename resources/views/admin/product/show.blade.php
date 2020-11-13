@@ -92,7 +92,6 @@
             <div class="col-lg-4">
                 <label>Image One (Main Thumbnail)<span class="tx-danger">*</span></label>
                 <label class="custom-file">
-
                 <img src="{{ URL::to($product->image_one) }}" style="height: 80px; width: 80px;" >
               </label>
             </div>

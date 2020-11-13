@@ -201,14 +201,14 @@
                                                 </div>
                                             </div>
 
-        {{-------- 'wishlist' without ajax (niche JS ache)--------}}
+        <!------- 'wishlist' without ajax(Tostr) ------->
                                             {{-- <a href="{{ URL::to('add/wishlist/'.$row->id) }}">
                                                 <div class="product_fav">
                                                     <i class="fa fa-heart text-danger"></i>
                                                 </div>
                                             </a> --}}
 
-        {{-------- 'wishlist' using ajax (niche JS ache)--------}}
+        <!------ 'wishlist' using ajax (niche JS ache)-------->
                                             <button
                                                class="addwishlist" data-id="{{ $row->id }}">
                                                <div class="product_fav">
