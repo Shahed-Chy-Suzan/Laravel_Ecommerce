@@ -121,7 +121,7 @@
 				    <a href="{{ route('show.cart') }}" class="button cart_button_clear cart_list">Back</a>
                     <a href="{{ route('payment.step') }}" class="button cart_button_checkout">Final Step</a>
 
-<!--------not found yet & if found thek "Final Step" (line 121) would have to comment out---------------->
+<!--------not found yet & if found then "Final Step" (line 121) would have to comment out---------------->
                     {{-- <form action='https://sandbox.2checkout.com/checkout/purchase' method='post'>
                         <input type='hidden' name='sid' value='901418835' />
                         <input type='hidden' name='mode' value='2CO' />

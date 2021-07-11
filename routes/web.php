@@ -35,9 +35,10 @@ Route::get('success/list/','PaymentController@SuccessList')->name('success.order
 Route::get('request/return/{id}','PaymentController@RequestReturn');
 
         //------------blog routes-------------------
-Route::get('blog/post','BlogController@blog')->name('blog.post');
+Route::get('blog/post','BlogController@blog')->name('blog.post');   //--nav--
 Route::get('language/bangla','BlogController@Bangla')->name('language.bangla');
 Route::get('language/english','BlogController@English')->name('language.english');
+Route::get('blog/description/{id}','BlogController@description');
 
 
 
@@ -112,16 +113,16 @@ Route::post('update/product/photo/{id}','Admin\ProductController@UpdateProductPh
         //-------get sub cate by ajax---------
 Route::get('get/subcategory/{category_id}','Admin\ProductController@GetSubcat');
         //--------blog routes(en/bn)---------------
-Route::get('admin/post/categoryName','Admin\PostController@postCategory')->name('postCategory.name');
+Route::get('admin/post/categoryName','Admin\PostController@postCategory')->name('postCategory.name');   //--nav-
 Route::get('admin/post/add/categoryName','Admin\PostController@addCategory')->name('add.categoryName');
 Route::post('admin/post/store/categoryName','Admin\PostController@storeCategory')->name('store.categoryName');
 Route::get('delete/category/name/{id}','Admin\PostController@deleteCat');
 Route::get('edit/category/name/{id}','Admin\PostController@editCat');
 Route::post('update/categoryName/{id}','Admin\PostController@updateCat');
 //----------------------
-Route::get('admin/add/post', 'Admin\PostController@create')->name('add.blogpost');
+Route::get('admin/add/post', 'Admin\PostController@create')->name('add.blogpost');   //--nav-
 Route::post('admin/store/post', 'Admin\PostController@store')->name('store.post');
-Route::get('admin/all/post', 'Admin\PostController@index')->name('all.blogpost');
+Route::get('admin/all/post', 'Admin\PostController@index')->name('all.blogpost');   //--nav-
 Route::get('delete/post/{id}','Admin\PostController@destroy');
 Route::get('edit/post/{id}','Admin\PostController@edit');
 Route::post('update/post/{id}','Admin\PostController@update');

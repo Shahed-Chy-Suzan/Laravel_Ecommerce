@@ -52,7 +52,7 @@
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                   <select class="form-control select2" data-placeholder="Choose Category" name="category_id">
-                    <option label="Choose Category"></option>
+                    {{-- <option label="Choose Category"></option> --}}
                     @foreach($category as $row)
                     <option value="{{ $row->id }}" <?php if ($row->id == $product->category_id) {
                     	echo "selected";

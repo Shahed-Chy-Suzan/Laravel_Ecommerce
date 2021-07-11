@@ -28,21 +28,25 @@
 					@foreach($post as $row)
 					<!-- Blog post -->
 					<div class="blog_post">
+                        <a class="text-dark" href="{{url('blog/description/'.$row->id)}}">
 						<div class="blog_image" style="background-image:url({{ asset($row->post_image) }})"></div>
-						<div class="blog_text">
+                            <div class="blog_text">
+                                    @if(session()->get('lang') == 'bangla')
+                                        {{ $row->post_title_bn }}
+                                    @else
+                                        {{ $row->post_title_en }}
+                                    @endif
+                            </div>
+                        </a>
+						<div class="blog_button">
+                            <a class="text-dark" href="{{url('blog/description/'.$row->id)}}">
                                 @if(session()->get('lang') == 'bangla')
-                                    {{ $row->post_title_bn }}
+                                    বিস্তারিত পড়ুন...
                                 @else
-                                    {{ $row->post_title_en }}
+                                    Continue Reading...
                                 @endif
-						</div>
-						<div class="blog_button"><a href="#">
-							 @if(session()->get('lang') == 'bangla')
-						    	বিস্তারিত পড়ুন...
-							@else
-						        Continue Reading...
-						    @endif
-					</a></div>
+					        </a>
+                        </div>
 					</div>
                     @endforeach
 

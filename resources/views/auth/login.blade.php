@@ -61,7 +61,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Phone </label>
-                                <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"  aria-describedby="emailHelp" placeholder="Phone "  required="">
+                                <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}"  aria-describedby="emailHelp" placeholder="Phone " required="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email </label>

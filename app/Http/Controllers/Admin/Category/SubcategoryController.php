@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
-use App\Model\Admin\Brand;
+use App\Model\Admin\Subcategory;
 use DB;
 use Illuminate\Http\Request;
 

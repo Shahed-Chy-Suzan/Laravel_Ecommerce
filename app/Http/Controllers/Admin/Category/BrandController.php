@@ -91,7 +91,7 @@ class BrandController extends Controller
 //-------update------
     public function updateBrand(Request $request,$id){
         $validatedData = $request->validate([
-            'category_name'  => 'max:55',
+            'brand_name'  => 'max:55',
         ]);
 
         $data=array();

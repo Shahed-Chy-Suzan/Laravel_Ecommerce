@@ -35,7 +35,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        //for restrictiing the users to access the admin login after logged in as user
+        //for restricting the users to access the admin login after logged in as user
         $this->middleware('guest:admin')->except('logout');
     }
 }

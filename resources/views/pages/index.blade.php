@@ -2962,6 +2962,20 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
             <div class="row">
                 <div class="col">
                     <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
+    {{-- validation error --}}
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    {{--End validation error --}}
                         <div class="newsletter_title_container">
                             <div class="newsletter_icon"><img src="{{ asset('public/frontend/images/send.png') }}" alt=""></div>
                             <div class="newsletter_title">Sign up for Newsletter</div>

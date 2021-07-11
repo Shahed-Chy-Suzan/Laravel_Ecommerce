@@ -12,7 +12,7 @@
     </nav>
     <div class="sl-pagebody">
         <div class="card pd-20 pd-sm-40">
-
+        <h6 class="card-body-title">Single Product Details <a href="{{ route('all.product') }}" class="btn btn-success btn-sm pull-right">All Product</a></h6>
         <p class="mg-b-20 mg-sm-b-30">Product Details</p>
 
         <div class="form-layout">
@@ -77,6 +77,28 @@
                 <label class="form-control-label">Selling Price <span class="tx-danger">*</span></label>
                  <br>
                 <strong>{{ $product->selling_price }}</strong>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Product Status <span class="tx-danger">*</span></label>
+                 <br>
+                 @if($product->status == 1)
+                  	 <strong class="badge badge-success">Active</strong>
+                  	@else
+                  	<strong class="badge badge-danger">Inactive</strong>
+                  	@endif
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Discount Price <span class="tx-danger">*</span></label>
+                 <br>
+                 @if($product->discount_price == NULL)
+                  	 <strong>Not Avalilable</strong>
+                  	@else
+                  	<strong>{{$product->discount_price}}</strong>
+                  	@endif
               </div>
             </div><!-- col-4 -->
 

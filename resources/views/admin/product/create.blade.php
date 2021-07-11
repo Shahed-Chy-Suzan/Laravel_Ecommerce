@@ -24,25 +24,25 @@
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="product_name"  >
+                <input class="form-control" type="text" name="product_name" required>
               </div>
             </div><!-- col-4 -->
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="product_code"  >
+                <input class="form-control" type="text" name="product_code" required>
               </div>
             </div><!-- col-4 -->
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label">Quantity <span class="tx-danger">*</span></label>
-                <input class="form-control" type="text" name="product_quantity"  >
+                <input class="form-control" type="text" name="product_quantity" required>
               </div>
             </div><!-- col-4 -->
             <div class="col-lg-4">
               <div class="form-group mg-b-10-force">
                 <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                <select class="form-control select2" data-placeholder="Choose Category" name="category_id">
+                <select class="form-control select2" data-placeholder="Choose Category" name="category_id" required>
                   <option> Choose Category </option>
 
                   @foreach($category as $row)
@@ -55,7 +55,7 @@
             <div class="col-lg-4">
               <div class="form-group mg-b-10-force">
                 <label class="form-control-label">Sub Category: <span class="tx-danger">*</span></label>
-                <select class="form-control select2" name="subcategory_id">
+                <select class="form-control select2" name="subcategory_id" required>
 
 
                 </select>

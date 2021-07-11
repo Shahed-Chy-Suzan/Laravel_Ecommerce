@@ -142,13 +142,14 @@ class PostController extends Controller
         return Redirect()->back()->with($notification);
     }
 
-//-----------Update----------------
+//-----------edit----------------
     public function edit($id)
     {
     	$post=DB::table('posts')->where('id',$id)->first();
     	return view('admin.blog.edit',compact('post'));
     }
 
+//-----------Update----------------
     public function update(Request $request,$id)
     {
     	$oldimage=$request->old_image;
