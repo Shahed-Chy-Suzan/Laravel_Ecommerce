@@ -21,7 +21,7 @@ class ProductController extends Controller
     	$size=$product->product_size;
         $product_size = explode(',', $size);
 
-      return  view('pages.product_details',compact('product','product_color','product_size'));
+        return view('pages.product_details',compact('product','product_color','product_size'));
     }
 
     public function AddCart(Request $request,$id)
@@ -37,12 +37,12 @@ class ProductController extends Controller
     	                $data['options']['image']=$product->image_one;
                         $data['options']['color']=$request->color;
                         $data['options']['size']=$request->size;
-    	               Cart::add($data);
+    	                Cart::add($data);
     	                $notification=array(
                            'message'=>'Successfully Cart Added',
                            'alert-type'=>'success'
                          );
-                       return Redirect()->to('/')->with($notification);
+                        return Redirect()->back()->with($notification);
     	   }else{
     	                $data['id']=$id;
     	                $data['name']=$product->product_name;
@@ -57,7 +57,7 @@ class ProductController extends Controller
                             'message'=>'Successfully Cart Added',
                             'alert-type'=>'success'
                          );
-                       return Redirect()->to('/')->with($notification);
+                        return Redirect()->back()->with($notification);
     	 }
     }
 

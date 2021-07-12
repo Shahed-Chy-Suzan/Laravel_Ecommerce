@@ -44,6 +44,7 @@
 										<div class="cart_item_total cart_info_col">
 											<div class="cart_item_title">Action</div><br><br>
 											<button id="{{ $row->id }}" class="btn btn-sm btn-danger addcart" data-toggle="modal" data-target="#cartmodal"  onclick="productview(this.id)">Add To Cart</button>
+                                            <a href="{{url('user/wishlist/remove/'.$row->id)}}" role="button" class="btn btn-sm btn-danger" title="Remove Cart"> X </a>
 										</div>
 									</div>
 								</li>

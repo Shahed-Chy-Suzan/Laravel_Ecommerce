@@ -106,7 +106,7 @@ class CartController extends Controller
         return response::json(array(
                 'product' => $product,
                 'color' => $product_color,
-                 'size' => $product_size,
+                'size' => $product_size,
          ));
     }
 
@@ -175,6 +175,18 @@ class CartController extends Controller
                     ->where('wishlists.user_id',$userid)
                     ->get();
         return view('pages.wishlist',compact('product'));
+    }
+
+    public function Remove($id)
+    {
+        $userid=Auth::id();
+        $product=DB::table('wishlists')->where('wishlists.user_id',$userid)->where('wishlists.product_id',$id)->delete();
+
+        $notification=array(
+            'message'=>'Successfully Deleted from Wishlist',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
 

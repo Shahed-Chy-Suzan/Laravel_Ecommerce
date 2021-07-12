@@ -9,7 +9,7 @@
 <script src="{{asset('public/frontend/js/jquery.min.js')}}"></script>
 
 @php
- $featured=DB::table('products')->where('status',1)->orderBy('id','desc')->limit(24)->get();    //sob_product(available)
+ $featured=DB::table('products')->where('status',1)->orderBy('id','desc')->get();    //sob_product(available)
  $trend=DB::table('products')->where('status',1)->where('trend',1)->orderBy('id','desc')->limit(24)->get();
  $best=DB::table('products')->where('status',1)->where('best_rated',1)->orderBy('id','desc')->limit(24)->get();
  $hot=DB::table('products')->join('brands','products.brand_id','brands.id')->select('brands.brand_name','products.*')->where('products.status',1)->where('hot_deal',1)->orderBy('id','desc')->limit(4)->get();
@@ -227,10 +227,9 @@
                                                 $discount= $amount/$row->selling_price * 100;
                                                 @endphp
                                                  <li class="product_mark product_discount">
-
-                                               {{ intval($discount) }}%
-                                                </li>
-                                                 @endif
+                                                    {{ intval($discount) }}%
+                                                 </li>
+                                                @endif
 
 
                                             </ul>
@@ -267,7 +266,7 @@
                                                     <button id="{{ $tre->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal"  onclick="productview(this.id)">Add to Cart</button>
                                                 </div>
                                             </div>
-        <!-------Not Working here(Discount equation)------->
+        <!------- 'wishlist' without ajax(Tostr) ------->
                                             {{-- <a href="{{ URL::to('add/wishlist/'.$tre->id) }}">
                                                 <div class="product_fav">
                                                     <i class="fa fa-heart text-danger"></i>
@@ -1734,7 +1733,7 @@
         </div>
     </div>
 
-    <!------------- Best Sellers ------------------------>
+    <!-------------Hot Best Sellers ------------------------>
 
     <div class="best_sellers">
         <div class="container">
@@ -2435,12 +2434,12 @@
 
 
 <!---------------------------------------------------------------------------------------------------->
-                            <!--for Showing '5th' 'Electronic' category--->
+                            <!--for Showing '6th' 'Electronic' category--->
 <!---------------------------------------------------------------------------------------------------->
 @php
 $cats=DB::table('categories')->skip(5)->first();
 $category_id=$cats->id;
-$products=DB::table('products')->where('category_id',$category_id)->where('status',1)->limit(16)->orderBy('id','DESC')->get();
+$products=DB::table('products')->where('category_id',$category_id)->where('status',1)->orderBy('id','DESC')->get();
 @endphp
 
     <div class="new_arrivals">
@@ -2533,7 +2532,7 @@ $products=DB::table('products')->where('category_id',$category_id)->where('statu
         </div>
     </div>
 
-<!-------------------------------- Ends of Showing '5th' 'Electronic' category ------------------------->
+<!-------------------------------- Ends of Showing '6th' 'Electronic' category ------------------------->
 
 
 
@@ -2955,7 +2954,8 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
         </div>
     </div>
 
-    <!-- Newsletter -->
+
+    <!---------------- Newsletter -------------------->
 
     <div class="newsletter">
         <div class="container">
@@ -2996,8 +2996,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
             </div>
         </div>
     </div>
-
-    <!------------End Footer -------------->
+    <!-----------------End Newsletter ------------------------->
 
 
 <!--------------product "Cart_add" modal------------------>
@@ -3050,7 +3049,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Quantity</label>
-                    <input type="number" class="form-control" value="1" name="qty">
+                    <input type="number" class="form-control" value="1" min="1" name="qty">
                   </div>
                   <button type="submit" class="btn btn-primary">Add To Cart</button>
                 </form>
@@ -3067,7 +3066,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
   <script type="text/javascript">
       function productview(id){     //--(productview(id)//-->from 'add to Cart' button div)
             $.ajax({
-                url: "{{  url('/cart/product/view/') }}/"+id,
+                url: "{{ url('/cart/product/view/') }}/"+id,
                 type:"GET",
                 dataType:"json",
                 success:function(data) {
@@ -3152,7 +3151,7 @@ $buyget=DB::table('products')->where('status',1)->where('buyone_getone',1)->orde
 </script>
 
 
-<!--Nicher ajax er 'add to cart' er code ta main index.blade.php page e 'add to cart' e click korlei Ajax diye kono load charai 'Cart' e add hoye notification asto(mane auto load hoye jetho),sei bebostar jonno code ta likha hoyechilo,kinto pore frontend theke sob data(size,color) soho niye jaowar jonno 'modal' use kore kaj kora hoyeche,tai ora r lagteche na ekn--->
+<!--Nicher ajax er 'add to cart' er code ta main index.blade.php page e 'add to cart' e click korlei Ajax diye kono load charai 'Cart' e add hoye notification asto(mane auto load hoye jetho),sei bebostar jonno code ta likha hoyechilo,kinto pore frontend theke sob data(size,color) soho niye jaowar jonno 'modal' use kore kaj kora hoyeche,tai ota r lagteche na ekn--->
 
 {{-- //------------for addcart------------------- --}}
 {{-- <script type="text/javascript">

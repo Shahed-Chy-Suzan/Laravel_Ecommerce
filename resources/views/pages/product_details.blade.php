@@ -59,7 +59,7 @@
 										 <div class="col-lg-4">
 										 	 <div class="form-group">
 										    <label for="exampleFormControlSelect1">Quantity</label>
-										 		<input class="form-control" type="number" pattern="[0-9]*" value="1" name="qty">
+										 		<input class="form-control" type="number" min="1" pattern="[0-9]*" value="1" name="qty">
 										  </div>
 										 </div>
 									</div>

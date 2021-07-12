@@ -108,7 +108,7 @@ class ReportController extends Controller
         $notification=array(
                 'message'=>'Child Admin Create Successfully',
                 'alert-type'=>'success'
-                    );
+            );
         return Redirect()->back()->with($notification);
     }
 

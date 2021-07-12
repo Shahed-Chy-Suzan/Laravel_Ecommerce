@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+
 
         //---------Socialite----------
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
@@ -19,6 +21,7 @@ Route::post('insert/into/cart/','CartController@InsertCart')->name('insert.into.
 
 Route::get('user/checkout/','CartController@Checkout')->name('user.checkout');
 Route::get('user/wishlist/','CartController@Wishlist')->name('user.wishlist');  //--nav--
+Route::get('user/wishlist/remove/{id}','CartController@Remove');
 Route::post('user/apply/coupon/','CartController@Coupon')->name('apply.coupon');
 Route::get('coupon/remove/','CartController@CouponRemove')->name('coupon.remove');
 Route::get('payment/page/','CartController@PymentPage')->name('payment.step');
@@ -159,10 +162,10 @@ Route::get('admin/all/return', 'Admin\ReturnController@AllReturn')->name('admin.
         //--------------stock--------------------
 Route::get('admin/product/stock', 'Admin\ReturnController@Stock')->name('admin.product.stock');
         //-----------site setting----------------
-Route::get('admin/site/setting', 'Admin\SettingController@SiteSetting')->name('admin.site.setting');
+Route::get('admin/site/setting', 'Admin\SettingController@SiteSetting')->name('admin.site.setting'); //--nav
 Route::post('admin/update/sitesetting', 'Admin\SettingController@UpdateSetting')->name('update.sitesetting');
         //-----------database backup---------------
-Route::get('admin/database/backup', 'Admin\SettingController@DatabaseBackup')->name('admin.database.backup');
+Route::get('admin/database/backup', 'Admin\SettingController@DatabaseBackup')->name('admin.database.backup'); //--nav
 Route::get('admin/database/backup/now', 'Admin\SettingController@BackupNow')->name('admin.backup.now');
 Route::get('delete/database/{getFilename}', 'Admin\SettingController@DeleteDatabase');
 Route::get('{getFilename}','Admin\SettingController@DownloadDatabase');
