@@ -44,7 +44,7 @@
                      @elseif($row->status == 3)
                      <span class="badge badge-success">Delevered </span>
                      @else
-                     <span class="badge badge-danger">Cancel </span>
+                     <span class="badge badge-danger">Canceled </span>
                      @endif
 
                   <td>

@@ -141,10 +141,10 @@ Route::get('admin/cancel/payment', 'Admin\OrderController@CancelPaymentOrder')->
 Route::get('admin/delevery/progress/{id}', 'Admin\OrderController@DeleveryProgress');
 Route::get('admin/delevery/done/{id}', 'Admin\OrderController@DeleveryDone');
         //---------Reports routes-------------
-Route::get('admin/today/order', 'Admin\ReportController@TodayOrder')->name('today.order');
-Route::get('admin/today/deleverd', 'Admin\ReportController@TodayDelevered')->name('today.delevered');
-Route::get('admin/this/month', 'Admin\ReportController@ThisMonth')->name('this.month');
-Route::get('admin/search/report', 'Admin\ReportController@search')->name('search.report');
+Route::get('admin/today/order', 'Admin\ReportController@TodayOrder')->name('today.order');  //--nav--
+Route::get('admin/today/deleverd', 'Admin\ReportController@TodayDelevered')->name('today.delevered');  //--nav--
+Route::get('admin/this/month', 'Admin\ReportController@ThisMonth')->name('this.month');  //--nav--
+Route::get('admin/search/report', 'Admin\ReportController@search')->name('search.report');  //--nav--
 Route::post('admin/search/byyear', 'Admin\ReportController@searchByYear')->name('search.by.year');
 Route::post('admin/search/bymonth', 'Admin\ReportController@searchByMonth')->name('search.by.month');
 Route::post('admin/search/bydate', 'Admin\ReportController@searchByDate')->name('search.by.date');
@@ -161,6 +161,7 @@ Route::get('/admin/approve/return/{id}', 'Admin\ReturnController@ApproveReturn')
 Route::get('admin/all/return', 'Admin\ReturnController@AllReturn')->name('admin.all.return');
         //--------------stock--------------------
 Route::get('admin/product/stock', 'Admin\ReturnController@Stock')->name('admin.product.stock');
+Route::get('admin/product/stockOut', 'Admin\ReturnController@StockOut')->name('admin.product.stockOut');
         //-----------site setting----------------
 Route::get('admin/site/setting', 'Admin\SettingController@SiteSetting')->name('admin.site.setting'); //--nav
 Route::post('admin/update/sitesetting', 'Admin\SettingController@UpdateSetting')->name('update.sitesetting');

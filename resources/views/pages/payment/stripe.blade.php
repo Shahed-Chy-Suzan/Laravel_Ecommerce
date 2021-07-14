@@ -99,27 +99,25 @@
 						   <br><br><hr>
 
 						<ul class="list-group col-lg-8" >
-                                @if(Session::has('coupon'))
-                                    <li class="list-group-item">Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span> </li>
-                                    <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }}) <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
-							        <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
-							  	@else
-							  	  <li class="list-group-item">Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
-							  	@endif
+                            @if(Session::has('coupon'))
+                                <li class="list-group-item">Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span> </li>
+                                <li class="list-group-item">Coupon : ({{ Session::get('coupon')['name'] }}) <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
+                                <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
+                            @else
+                                <li class="list-group-item">Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
+                            @endif
 
-
-
-							  <li class="list-group-item">Shipping Charge: <span style="float: right;"> $ {{ $charge }}</span></li>
-							  <li class="list-group-item">Vat :  <span style="float: right;"> 0</span></li>
-                              @if(Session::has('coupon'))
+                            <li class="list-group-item">Shipping Charge: <span style="float: right;"> $ {{ $charge }}</span></li>
+                            <li class="list-group-item">Vat :  <span style="float: right;"> 0</span></li>
+                            @if(Session::has('coupon'))
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                              <li class="list-group-item">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li>
-                              {{-- <li class="list-group-item">Total:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
-                              @else
+                            <li class="list-group-item">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li>
+                            {{-- <li class="list-group-item">Total:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
+                            @else
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                                <li class="list-group-item">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li>
-                                {{-- <li class="list-group-item">Total:  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
-							  @endif
+                            <li class="list-group-item">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li>
+                            {{-- <li class="list-group-item">Total:  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
+                            @endif
 						</ul>
 					</div>
                 </div>

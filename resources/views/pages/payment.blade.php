@@ -10,7 +10,7 @@
     <div class="contact_form">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7 "  style="border-right: 1px solid grey; padding: 20px;">
+                <div class="col-lg-7" style="border-right: 1px solid grey; padding: 20px;">
                     <div class="cart_container">
                     	<div class="contact_form_title text-center">Cart Products</div>
 						<div class="cart_items">
@@ -64,26 +64,42 @@
 
 						<ul class="list-group col-lg-8">
                               @if(Session::has('coupon'))
-                                    <li class="list-group-item ">Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span> </li>
-                                    <li class="list-group-item">Coupon : ({{   Session::get('coupon')['name'] }})  <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
-							       <li class="list-group-item">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
+                                    <li class="list-group-item">
+                                        Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Coupon : ({{   Session::get('coupon')['name'] }})  <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span>
+                                    </li>
+							       <li class="list-group-item">
+                                       Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span>
+                                    </li>
 							  	@else
-							  	  <li class="list-group-item">Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
+							  	    <li class="list-group-item">
+                                        Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span>
+                                    </li>
 							  	@endif
 
 
 
-							  <li class="list-group-item">Shipping Charge: <span style="float: right;"> $ {{ $charge }}</span></li>
-							  <li class="list-group-item">Vat :  <span style="float: right;"> 0</span></li>
-                              @if(Session::has('coupon'))
-<!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                              <li class="list-group-item bg-dark text-light">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li>
-                              {{-- <li class="list-group-item">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
-                              @else
-<!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                                {{-- <li class="list-group-item">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
-                                <li class="list-group-item bg-dark text-light">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li>
-							  @endif
+                                <li class="list-group-item">
+                                    Shipping Charge: <span style="float: right;"> $ {{ $charge }}</span>
+                                    </li>
+                                <li class="list-group-item">
+                                    Vat :  <span style="float: right;"> 0</span>
+                                </li>
+                                @if(Session::has('coupon'))
+    <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
+                                <li class="list-group-item bg-dark text-light">
+                                    Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span>
+                                </li>
+                                {{-- <li class="list-group-item">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
+                                @else
+    <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
+                                    {{-- <li class="list-group-item">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
+                                    <li class="list-group-item bg-dark text-light">
+                                        Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span>
+                                    </li>
+                                @endif
 						</ul>
 					</div>
                 </div>
@@ -106,7 +122,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email </label>
-                                <input type="text" class="form-control " name="email"   aria-describedby="emailHelp" placeholder="Email " required="">
+                                <input type="email" class="form-control " name="email"   aria-describedby="emailHelp" placeholder="Email " required="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Address</label>
@@ -119,9 +135,24 @@
                             <div class="contact_form_title text-center">Payment By</div>
                            <div class="form-group">
                                 <ul class="logos_list " >
-                                    <li><input type="radio" name="payment" value="stripe"> <img src="{{ asset('public/frontend/images/mastercard.png') }}" style="width: 100px; height: 60px;"></li>
-                                    <li><input type="radio" name="payment" value="paypal"> <img src="{{ asset('public/frontend/images/paypal.png') }}" style="width: 100px;"></li>
-                                    <li><input type="radio" name="payment" value="ideal"> <img src="{{ asset('public/frontend/images/mollie.png') }}" style="width: 100px; height: 80px;"></li>
+                                    <li>
+                                        <input type="radio" name="payment" value="stripe" id="stripe">
+                                        <label for="stripe">
+                                            <img src="{{ asset('public/frontend/images/mastercard.png') }}" style="width: 100px; height: 60px;">
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="payment" value="paypal" id="paypal">
+                                        <label for="paypal">
+                                            <img src="{{ asset('public/frontend/images/paypal.png') }}" style="width: 100px;">
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" name="payment" value="ideal" id="ideal">
+                                        <label for="ideal">
+                                            <img src="{{ asset('public/frontend/images/mollie.png') }}" style="width: 100px; height: 80px;">
+                                        </label>
+                                    </li>
                                  </ul>
                             </div><br>
                             <div class="contact_form_button">

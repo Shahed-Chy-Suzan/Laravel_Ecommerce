@@ -31,7 +31,8 @@ class ReportController extends Controller
     public function ThisMonth()
     {
         $month=date('F');
-        $order=DB::table('orders')->where('status',3)->where('month',$month)->get();
+        $year=date('Y');
+        $order=DB::table('orders')->where('status',3)->where('month',$month)->where('year',$year)->get();
         return view('admin.report.today_order',compact('order'));
     }
 
@@ -58,12 +59,20 @@ class ReportController extends Controller
 
     public function searchByDate(Request $request)
     {
-        $date=$request->date;
+        $date=$request->date;   //here fetched date format is 07/13/2021 but our DB date format is 13/07/21
         $newdate = date("d-m-y", strtotime($date));
         $total=DB::table('orders')->where('status',3)->where('date',$newdate)->sum('total');
         $order=DB::table('orders')->where('status',3)->where('date',$newdate)->get();
         return view('admin.report.search_report',compact('order','total'));
     }
+        //--here($date=$request->date;) fetched date format is 07/13/2021(American m/d/y is assumed) but our DB date format is 13/07/21(European d-m-y format is assumed), so now we have to convert this (07/13/2021) to our DB date format(13/07/21), Thats why we used strtotime() PHP function here, Ex:
+            //--prints the converted english text in second
+                // echo strtotime("12th february 2017"), "\n";
+            //--prints the above time in date format
+                // echo date("Y-m-d", strtotime("12th february 2017"))."\n";
+                    //--Output:
+                    // 1486857600
+                    // 2017-02-12
 
 
 //==============================================================================

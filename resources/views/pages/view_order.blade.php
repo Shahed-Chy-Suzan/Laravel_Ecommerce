@@ -84,7 +84,7 @@
                                 @elseif($order->status == 1)
                                     <span class="badge badge-info">Payment Accept</span>
                                 @elseif($order->status == 2)
-                                    <span class="badge badge-info">Progress </span>
+                                    <span class="badge badge-primary">Progress </span>
                                 @elseif($order->status == 3)
                                     <span class="badge badge-success">Delivered </span>
                                 @else
@@ -140,14 +140,15 @@
 
         @if($order->status == 0)
             <h3 class="card text-center text-light bg-info">This order is on pending</h3>
+            <h3 class="card text-center text-light bg-danger">Want to cancel this order?</h3>
         @elseif($order->status == 1)
             <h3 class="card text-center text-light bg-info"> Your Payment have already done and now in delivery process</h3>
         @elseif($order->status == 2)
             <h3 class="card text-center text-light bg-info"> Payment have already done of your product and handover successfully</h3>
         @elseif($order->status == 4)
-            <h3 class="card text-center text-light bg-info">This order is not valid,So its cancelled</h3>
+            <h3 class="card text-center text-light bg-danger">This order is not valid,So its cancelled</h3>
         @else
-            <h3 class="card text-center text-light bg-info">This product is successfully delivered</h3>
+            <h3 class="card text-center text-light bg-success">This product is successfully delivered</h3>
         @endif
 
       </div>

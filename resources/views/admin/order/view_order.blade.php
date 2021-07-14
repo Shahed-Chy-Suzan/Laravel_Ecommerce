@@ -149,9 +149,9 @@
             <a href="{{ url('admin/delevery/done/'.$order->id) }}" class="btn btn-success">Delivery Done</a>
             <strong> Payment have already done of your product and handover successfully</strong>
         @elseif($order->status == 4)
-            <strong class="text-danger">This order is not valid,So its canceled</strong>
+            <h3 class="text-danger font-weight-bold text-center">This order is not valid, So its canceled</h3>
         @else
-            <strong class="text-success">This product is successfully delivered</strong>
+            <h3 class="text-success font-weight-bold text-center">This product is successfully delivered</h3>
         @endif
 
       </div>

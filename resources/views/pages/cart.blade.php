@@ -16,7 +16,11 @@
                         <ul class="cart_list">
                         @foreach($cart as $row)
                             <li class="cart_item clearfix cart_list">
-                                <div class="cart_item_image"><img src="{{ asset( $row->options->image) }}" style="height: 100px;"></div>
+                                <div class="cart_item_image">
+                                    <a href="{{ url('product/details/'.$row->id.'/'.$row->name) }}">
+                                        <img src="{{ asset( $row->options->image) }}" style="height: 100px;">
+                                    </a>
+                                </div>
                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                     <div class="cart_item_name cart_info_col">
                                         <div class="cart_item_title">Name</div>
@@ -45,9 +49,9 @@
                                         <div class="cart_item_title">Quantity</div><br>
                                         <form method="post" action="{{ route('update.cartitem') }}">
                                             @csrf
-                                            <input type="hidden" name="productid" value="{{ $row->rowId }}">
-                                        <input type="number" name="qty" value="{{ $row->qty }}" style="width: 60px; height: 30px;">
-                                            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-check-square"></i></button>
+                                        <input type="hidden" name="productid" value="{{ $row->rowId }}">
+                                        <input type="number" name="qty" value="{{ $row->qty }}" min="1" style="width: 60px; height: 30px;">
+                                            <button type="submit" class="btn btn-success btn-sm" title="Update quantity"><i class="fa fa-check-square"></i></button>
                                         </form>
                                     </div>
                                     <div class="cart_item_price cart_info_col">

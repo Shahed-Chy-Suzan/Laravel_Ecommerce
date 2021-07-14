@@ -64,13 +64,18 @@ class CartController extends Controller
     public function showCart()
     {
         $cart=Cart::content();
-       return view('pages.cart',compact('cart'));
+        return view('pages.cart',compact('cart'));
     }
 
     public function removeCart($rowId)
     {
         Cart::remove($rowId);
-        return redirect()->back();
+
+        $notification=array(
+            'message'=>'Product Removed from Cart',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     public function UpdateCart(Request $request)
@@ -78,7 +83,12 @@ class CartController extends Controller
         $rowId =$request->productid;
         $qty=$request->qty;
         Cart::update($rowId, $qty);
-        return redirect()->back();
+
+        $notification=array(
+            'message'=>'Product Quantity Updated',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
 
@@ -219,7 +229,12 @@ class CartController extends Controller
     public function CouponRemove()
     {
         session::forget('coupon');
-        return redirect()->back();
+
+        $notification=array(
+            'message'=>'Coupon Removed Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);
     }
 
     public function PymentPage()

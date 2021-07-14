@@ -87,7 +87,7 @@ class PaymentController extends Controller
         $data['status_code']= mt_rand(100000,999999);
         $order_id=DB::table('orders')->insertGetId($data);
 
-        Mail::to($email)->send(new invoiceMail($data));    //---------mail send to user-------------
+        // Mail::to($email)->send(new invoiceMail($data));    //---------mail send to user-------------
 
     //insert shipping details table
         $shipping=array();
@@ -115,16 +115,21 @@ class PaymentController extends Controller
             DB::table('order_details')->insert($details);
         }
 
+
+        Mail::to($email)->send(new invoiceMail($data));    //---------mail send to user-------------
+
+        //destroy or removing Cart
         Cart::destroy();
             if (Session::has('coupon')) {
             Session::forget('coupon');
         }
 
         $notification=array(
-                    'message'=>'Successfully Done',
-                    'alert-type'=>'success'
-                );
+                'message'=>'Successfully Done',
+                'alert-type'=>'success'
+            );
             return Redirect()->to('/')->with($notification);
+
     }
 
 //-------not found yet--------
@@ -145,7 +150,7 @@ class PaymentController extends Controller
 //----------------Return Order------------------
     public function SuccessList()
     {
-        $order=DB::table('orders')->where('user_id',Auth::id())->where('status',3)->orderBy('id','DESC')->limit(10)->get();
+        $order=DB::table('orders')->where('user_id',Auth::id())->where('status',3)->orderBy('id','DESC')->get();
         return view('pages.returnorder',compact('order'));
     }
 
@@ -153,7 +158,7 @@ class PaymentController extends Controller
     {
         DB::table('orders')->where('id',$id)->update(['return_order'=>1]);
         $notification=array(
-            'message'=>'Order return request done! please wait for our confirmation email',
+            'message'=>'Order return request done! please wait for our response',
             'alert-type'=>'success'
         );
         return Redirect()->back()->with($notification);

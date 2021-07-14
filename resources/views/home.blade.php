@@ -2,12 +2,13 @@
 @section('content')
 
 @php
-  $order=DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')->limit(10)->get();
+  $order=DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')->get();
 @endphp
 
     <div class="contact_form">
         <div class="container">
             <div class="row">
+
                <div class="col-9 card">
                  <table class="table table-response table-hover ">
                    <thead>
@@ -19,7 +20,6 @@
                         <th scope="col">Status</th>
                         <th scope="col">Status Code</th>
                         <th scope="col">Action</th>
-                        <th></th>
                      </tr>
                    </thead>
                    <tbody>
@@ -32,14 +32,15 @@
                        <td>
                        	@if($row->status == 0)
                        	 <span class="badge badge-warning">Pending</span>
+                       	 <span class="btn badge badge-danger">Cancel Order?</span>
                        	@elseif($row->status == 1)
                        	<span class="badge badge-info">Payment Accept</span>
                        	@elseif($row->status == 2)
-                       	 <span class="badge badge-info">Progress </span>
+                       	 <span class="badge badge-primary">Progress </span>
                        	 @elseif($row->status == 3)
                        	 <span class="badge badge-success">Delevered </span>
                        	 @else
-                       	 <span class="badge badge-danger">Cancel </span>
+                       	 <span class="badge badge-dark">Canceled </span>
                        	 @endif
                        </td>
                        <td>{{ $row->status_code }}</td>
@@ -51,6 +52,8 @@
                    </tbody>
                  </table>
                </div>
+
+
                <div class="col-3">
                  <div class="card" style="width: 18rem;">
                   <img src="{{ asset('public/avatar.jpg') }}" class="card-img-top" style="height: 90px; width: 90px; margin-left: 34%;" >
@@ -67,6 +70,8 @@
                   </div>
                 </div>
                </div>
+
+
             </div>
         </div>
     </div>

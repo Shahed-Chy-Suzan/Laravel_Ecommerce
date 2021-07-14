@@ -109,7 +109,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Quantity</label>
-                    <input type="number" class="form-control" value="1" name="qty">
+                    <input type="number" class="form-control" value="1" min="1" name="qty">
                   </div>
                   <button type="submit" class="btn btn-primary">Add To Cart</button>
                 </form>

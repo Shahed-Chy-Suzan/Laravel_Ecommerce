@@ -54,6 +54,16 @@ class ReturnController extends Controller
         return view('admin.stock.stock',compact('product'));
 
     }
+    public function StockOut()
+    {
+        $product=DB::table('products')
+                    ->join('categories','products.category_id','categories.id')
+                    ->where('products.product_quantity','<','1')
+                    ->select('products.*','categories.category_name')
+                    ->get();
+        return view('admin.stock.stockOut',compact('product'));
+
+    }
 
 
 }

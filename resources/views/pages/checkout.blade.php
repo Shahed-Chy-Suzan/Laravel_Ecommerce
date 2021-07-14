@@ -21,7 +21,11 @@
 							<ul class="cart_list">
 							@foreach($cart as $row)
 								<li class="cart_item clearfix cart_list">
-									<div class="cart_item_image"><img src="{{ asset( $row->options->image) }}" style="height: 100px;"></div>
+									<div class="cart_item_image">
+                                        <a href="{{ url('product/details/'.$row->id.'/'.$row->name) }}">
+                                            <img src="{{ asset( $row->options->image) }}" style="height: 100px;">
+                                        </a>
+                                    </div>
 									<div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
 										<div class="cart_item_name cart_info_col">
 											<div class="cart_item_title">Name</div>
@@ -82,7 +86,7 @@
                         <div class="order_total_content cart_list" style="padding: 14px;">
                             <h4>Apply Coupon :</h4>
                             <form action="{{ route('apply.coupon') }}" method="POST">
-                            @csrf
+                                @csrf
                                 <div class="form-group col-lg-4">
                                     <input type="text" class="form-control" name="coupon" required=""  aria-describedby="emailHelp" placeholder="Enter Coupon Code">
                                 </div>
@@ -93,25 +97,41 @@
                          <br>
 
 						<ul class="list-group col-lg-4" style="float: right;">
-                                @if(Session::has('coupon'))
-                                    <li class="list-group-item cart_list">Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span> </li>
-                                    <li class="list-group-item cart_list">Coupon : ({{ Session::get('coupon')['name'] }}) <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm" title="Remove Coupon">x</a> <span style="float: right;"> $  {{ Session::get('coupon')['discount'] }} </span> </li>
-							       <li class="list-group-item cart_list">Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li>
-							  	@else
-							  	  <li class="list-group-item cart_list">Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
-							  	@endif
+                            @if(Session::has('coupon'))
+                                <li class="list-group-item cart_list">
+                                    Total :  <span style="float: right;">  $ {{ Cart::Subtotal() }} </span>
+                                </li>
+                                <li class="list-group-item cart_list">
+                                    Coupon : ({{ Session::get('coupon')['name'] }})
+                                    <a href="{{ route('coupon.remove') }}" class="btn btn-danger btn-sm" title="Remove Coupon">x</a>
+                                    <span style="float: right;"> $ {{ Session::get('coupon')['discount'] }} </span>
+                                </li>
+                                <li class="list-group-item cart_list">
+                                    Subtotal :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span>
+                                </li>
+                            @else
+                                <li class="list-group-item cart_list">Total :  <span style="float: right;"> $ {{ Cart::Subtotal() }}</span> </li>
+                            @endif
 
-							  <li class="list-group-item cart_list">Shipping Charge : <span style="float: right;"> $ {{ $charge }}</span></li>
-							  <li class="list-group-item cart_list">Vat :  <span style="float: right;"> 0</span></li>
-                              @if(Session::has('coupon'))
+                            <li class="list-group-item cart_list">
+                                Shipping Charge : <span style="float: right;"> $ {{ $charge }}</span>
+                                </li>
+                            <li class="list-group-item cart_list">
+                                Vat :  <span style="float: right;"> 0</span>
+                            </li>
+                            @if(Session::has('coupon'))
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                              <li class="list-group-item bg-dark text-light cart_list">Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span> </li>
-                              {{-- <li class="list-group-item">Final Amount:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
-                              @else
+                                <li class="list-group-item bg-dark text-light cart_list">
+                                    Final Amount :  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] + $charge }}</span>
+                                </li>
+                            {{-- <li class="list-group-item">Final Amount:  <span style="float: right;"> $ {{ Session::get('coupon')['balance'] }}</span> </li> --}}
+                            @else
 <!--ekhane 'a non well formed numeric value entered' problem ta asteche,tai comment kore dechi-->
-                                   <li class="list-group-item bg-dark text-light cart_list">Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span> </li>
-                                   {{-- <li class="list-group-item">Final Amount:  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
-							  @endif
+                                <li class="list-group-item bg-dark text-light cart_list">
+                                    Final Amount :  <span style="float: right;">$ {{ Cart::Subtotal() + $charge }} </span>
+                                </li>
+                                {{-- <li class="list-group-item">Final Amount:  <span style="float: right;">$ {{ Cart::Subtotal() }} </span> </li> --}}
+                            @endif
 						</ul>
 					</div>
 
